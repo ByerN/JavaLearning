@@ -3,7 +3,7 @@ package org.byern.javalearning.lesson1;
 /**
  * Created by ByerN on 18.02.2017.
  */
-public class PrimitivesMain {
+public class PrimitivesLesson {
 
     /**
      * This is a main method.

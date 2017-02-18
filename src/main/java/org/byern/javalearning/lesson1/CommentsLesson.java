@@ -3,7 +3,7 @@ package org.byern.javalearning.lesson1;
 /**
  * Created by ByerN on 18.02.2017.
  */
-public class CommentsMain {
+public class CommentsLesson {
 
     /**
      * This is JavaDoc supported format of comment.
