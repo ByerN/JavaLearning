@@ -56,7 +56,7 @@ public class IfElseIfElseLesson {
          * to be a bad practice.
          *
          * Of course more complex conditions can be created with other operators.
-         *
+         * 
          * For boolean logic refer to BooleanLogicLesson
          */
 
