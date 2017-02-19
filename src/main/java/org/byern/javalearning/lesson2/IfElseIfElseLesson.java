@@ -13,7 +13,7 @@ public class IfElseIfElseLesson {
          * Construction:
          *
          * Without block:
-         * if(condition) expression; //-> don't use this one - less readable
+         * if(condition) expression; //-> don't use this one - less readable, easy to make a mistake
          *
          * With block:
          * if(condition){
@@ -56,7 +56,7 @@ public class IfElseIfElseLesson {
          * to be a bad practice.
          *
          * Of course more complex conditions can be created with other operators.
-         * 
+         *
          * For boolean logic refer to BooleanLogicLesson
          */
 

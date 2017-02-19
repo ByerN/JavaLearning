@@ -1,5 +1,7 @@
 package org.byern.javalearning.lesson2;
 
+import com.sun.org.apache.bcel.internal.util.Objects;
+
 /**
  * Created by ByerN on 18.02.2017.
  */
@@ -86,5 +88,20 @@ public class OperatorsLesson {
         int var1 = 1;
         var1 += 1; // var1 = var1 + 1;
         var1 -= 1; // var1 = var1 - 1;
+
+
+        /*
+         * Important note:
+         *
+         * Don't really on comparision operators when comparing objects (e.g. String).
+         * use equals or Objects.equals instead
+         *
+         */
+
+        System.out.println(Objects.equals("a", "b")); // false
+        System.out.println(Objects.equals("a", "a")); // true
+
+        System.out.println("a".equals("b")); // false
+        System.out.println("a".equals("a")); // true
     }
 }

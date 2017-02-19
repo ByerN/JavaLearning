@@ -13,6 +13,8 @@ public class VariablesLesson {
      * final - means that it's value cannot be changed after initialization.
      *
      * Constants should be declared and initialized at same time.
+     *
+     * Good practice is to call it via ClassName.CONSTANT_VARIABLE -> VariablesLesson.CONSTANT
      */
     public static final int CONSTANT = 1;// + SECOND_CONSTANT; //adding this one will cause illegal forward reference
     public static final int SECOND_CONSTANT = 2 + CONSTANT;//This one works. Declaring order is important.
@@ -21,7 +23,7 @@ public class VariablesLesson {
      * This is class variable.
      *
      * Class variables are static.
-     *
+     * Good practice is to call it via ClassName.classVariable -> VariablesLesson.classVariable
      */
     public static int classVariable;
 
@@ -43,6 +45,12 @@ public class VariablesLesson {
          * It lives only in block where it was declared(this one will be visible only in "main" method).
          */
         int localVariable = 0;
+
+        /*
+         * you can initialize multiple variables in one line.
+         * Caution! It's considered as a bad practice because of poor readability.
+         */
+        int a = 2, b, c = 1;
 
         /*
          * { } -> it's a code block.
