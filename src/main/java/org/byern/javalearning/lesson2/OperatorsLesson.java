@@ -1,6 +1,7 @@
 package org.byern.javalearning.lesson2;
 
-import com.sun.org.apache.bcel.internal.util.Objects;
+
+import java.util.Objects;
 
 /**
  * Created by ByerN on 18.02.2017.
