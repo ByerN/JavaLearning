@@ -1,8 +1,16 @@
 package org.byern.javalearning.lesson2.homework;
 
+import java.util.Scanner;
+import java.lang.Math.*;
+
+import static java.lang.Math.PI;
+import static java.lang.Math.pow;
+import static java.lang.Math.sqrt;
+
 /**
  * Created by ByerN on 21.02.2017.
  */
+
 public class Homework1 {
 
     /*
@@ -30,6 +38,35 @@ public class Homework1 {
      *
      */
     public static void main(String[] args) {
+        double x1, x2, y1, y2, r1, r2 = 0;
+        System.out.println("Podaj odpowiednio x1,y1,r1,x2,y2,r2");
+        Scanner reader = new Scanner(System.in);
+
+        x1 = reader.nextDouble();
+        y1 = reader.nextDouble();
+        x2 = reader.nextDouble();
+        r1 = reader.nextDouble();
+        y2 = reader.nextDouble();
+        r2 = reader.nextDouble();
+
+        double d; //distance between centers of circles
+        double X,Y,R;
+        X=x2-x1;
+        Y=y2-y1;
+        R=r2-r1;
+        d=sqrt(pow(X,2)+pow(Y,2));
+
+        //System.out.println(d);
+        //float a1,a2;
+        //a1=pow(r1,2)*PI;;
+        //a2=pow(r2,2)*PI;
+
+//        if ((r1+r2)<=d)
+        if (pow(X,2)+pow(Y,2)<pow(R,2) AND )
+            System.out.println("Collision detected");
+        else
+            System.out.println("Collision NOT detected");
+
     }
 
 }
