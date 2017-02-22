@@ -1,35 +1,37 @@
 package org.byern.javalearning.lesson2.homework;
 
-/**
- * Created by ByerN on 21.02.2017.
- */
+import java.util.Scanner;
+
 public class Homework1 {
 
-    /*
-     * There are two circles.
-     *
-     * Properties that describes circles are: x, y, r
-     * x,y -> circle center coordinates
-     * r -> circle radius
-     *
-     * 1. Read properties x1, y1, r1, x2, y2, r2 from input (Scanner usage)
-     * 2. Store it in variables
-     * 3a. If circles are colliding with each other (overlapping), print "Collision detected!"
-     * 3b. else -> print "Collision not detected!"
-     *
-     * If the smaller one is in the bigger one it's still collision.
-     * Inclusive collision.
-     *
-     * Advanced:
-     * -Read a boolean flag from input that says if collision check is inclusive or exclusive
-     *  and use it in collision calculation (true -> inclusive, false -> exclusive)
-     *
-     * Hint:
-     * -Math library can be useful. Check Math.sqrt(variable) documentation for example.
-     * -https://en.wikipedia.org/wiki/Pythagorean_theorem
-     *
-     */
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Enter x1");
+        int x1 = scanner.nextInt();
+        System.out.println("Enter y1");
+        int y1 = scanner.nextInt();
+        System.out.println("Enter x2");
+        int x2 = scanner.nextInt();
+        System.out.println("Enter y2");
+        int y2 = scanner.nextInt();
+        System.out.println("Enter r1");
+        int r1 = scanner.nextInt();
+        System.out.println("Enter r2");
+        int r2 = scanner.nextInt();
+
+        System.out.println("Check inclusive? (true/false)");
+        boolean inclusive = scanner.nextBoolean();
+
+        double distance = Math.sqrt( Math.pow(( x2-x1 ), 2 )  + Math.pow(( y2-y1 ), 2 ));
+
+        if (inclusive && distance <= Math.abs(r1 - r2)) {
+            System.out.println("Collision detected! Inclusive");
+        } else if (!inclusive && distance <= r1 + r2){
+            System.out.println("Collision detected! Exclusive");
+        } else {
+            System.out.println("Collision not detected!");
+        }
     }
 
 }
