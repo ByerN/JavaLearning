@@ -34,6 +34,7 @@ public class Homework1 {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+
         System.out.println("Please provide 1st circle x value: ");
         int x1 = scanner.nextInt();
         System.out.println("Please provide 1st circle y value: ");
