@@ -1,5 +1,7 @@
 package org.byern.javalearning.lesson2.homework;
 
+import java.util.Scanner;
+
 /**
  * Created by ByerN on 21.02.2017.
  */
@@ -30,6 +32,46 @@ public class Homework1 {
      *
      */
     public static void main(String[] args) {
-    }
+        Scanner scanner = new Scanner(System.in); //Creates input to our program
+        System.out.println("Enter x1");
+        int x1 = scanner.nextInt();
+        System.out.println("Enter y1");
+        int y1 = scanner.nextInt();
+        System.out.println("Enter r1");
+        int r1 = scanner.nextInt();
 
+        System.out.println("Enter x2");
+        int x2 = scanner.nextInt();
+        System.out.println("Enter y2");
+        int y2 = scanner.nextInt();
+        System.out.println("Enter r2");
+        int r2 = scanner.nextInt();
+        //System.out.println("x1=" + x1 + "; y1=" + y1 + "; r1=" + r1);
+        double checker = Math.sqrt(Math.pow((x2-x1), 2)+Math.pow((y2-y1), 2));
+        //System.out.println(checker);
+        if ((r1+r2)>=checker){System.out.println("Collision detected!");}
+        else {System.out.println("Collision not detected!");}
+
+
+
+        /*add boolean for check Collision
+        boolean b = false;
+        do {
+            try {
+                System.out.print("Are you above 18?");
+                Scanner n = new Scanner(System.in);
+                boolean bn = n.nextBoolean();
+                if (bn == true) {
+                    System.out.println("Over 18");
+                } else if (bn == false) {
+                    System.out.println("under 18");
+                }
+
+            } catch (InputMismatchException e) {
+                System.out.println("Invalid input!");
+            }
+        } while (!b);
+        */
+
+    }
 }
