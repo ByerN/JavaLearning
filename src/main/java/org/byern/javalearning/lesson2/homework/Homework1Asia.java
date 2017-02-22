@@ -5,7 +5,7 @@ import java.util.Scanner;
 /**
  * Created by ByerN on 21.02.2017.
  */
-public class Homework1 {
+public class Homework1Asia {
 
     /*
      * There are two circles.
