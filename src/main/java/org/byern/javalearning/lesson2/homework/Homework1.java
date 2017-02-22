@@ -1,5 +1,7 @@
 package org.byern.javalearning.lesson2.homework;
 
+import java.util.Scanner;
+
 /**
  * Created by ByerN on 21.02.2017.
  */
@@ -30,6 +32,70 @@ public class Homework1 {
      *
      */
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Please enter first circle properties:");
+
+        System.out.println("x1:");
+        int x1 = scanner.nextInt();
+        System.out.println("y1:");
+        int y1 = scanner.nextInt();
+        System.out.println("r1:");
+        int r1 = scanner.nextInt();
+        System.out.println("Please enter second circle properties:");
+
+        System.out.println("x2:");
+        int x2 = scanner.nextInt();
+        System.out.println("y2:");
+        int y2 = scanner.nextInt();
+        System.out.println("r2:");
+        int r2 = scanner.nextInt();
+
+        System.out.println("Is collision inclusive?");
+        boolean inclusive = scanner.nextBoolean();
+
+        /*
+         * Circle collision:
+         *
+         * c^2 = a^2 + b^2
+         * c = sqrt ( a^2 + b^2 ) -> circles centers distance
+         *
+         * if c <= sum of circles radius -> collision
+         * (< for exclusive)
+         *
+         */
+        double c = Math.sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
+        if(inclusive ? c <= (r1 + r2) : c < (r1 + r2)){
+            System.out.println("Collision detected!");
+        } else {
+            System.out.println("Collision not detected!");
+        }
+
+/*
+        //Solution without floating point and sqrt -> better performance, lack of floating point
+        //rounding issues.
+
+        int cNoSqrt = (x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1);
+        int rSqr = (r1 + r2) * (r1 + r2);
+        if(inclusive ? cNoSqrt <= rSqr : cNoSqrt < rSqr){
+            System.out.println("Collision detected!");
+        } else {
+            System.out.println("Collision not detected!");
+        }
+*/
+
+/*      //Another attempt
+
+        int cNoSqrt = (x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1);
+        int rSqr = (r1 + r2) * (r1 + r2);
+        if(cNoSqrt < rSqr || (inclusive && cNoSqrt == rSqr)){
+            System.out.println("Collision detected!");
+        } else {
+            System.out.println("Collision not detected!");
+        }
+*/
+
+
     }
 
 }
