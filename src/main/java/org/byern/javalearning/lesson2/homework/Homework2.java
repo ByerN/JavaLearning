@@ -1,7 +1,8 @@
-package org.byern.javalearning.lesson2.homework;
+//package org.byern.javalearning.lesson2.homework;
 
 /**
  * Created by ByerN on 21.02.2017.
+ * Edited by Konrad
  */
 public class Homework2 {
 
