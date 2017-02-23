@@ -39,7 +39,7 @@ public class Homework1 {
      */
     public static void main(String[] args) {
         double x1, x2, y1, y2, r1, r2 = 0;
-        System.out.println("Podaj odpowiednio x1,y1,r1,x2,y2,r2");
+        System.out.println("x1,y1,r1,x2,y2,r2, next true/false");
         Scanner reader = new Scanner(System.in);
 
         x1 = reader.nextDouble();
@@ -49,6 +49,9 @@ public class Homework1 {
         y2 = reader.nextDouble();
         r2 = reader.nextDouble();
 
+        //b = boolean;
+        //b= reader.nextBoolean();
+
         double d; //distance between centers of circles
         double X,Y,R;
         X=x2-x1;
@@ -56,13 +59,9 @@ public class Homework1 {
         R=r2-r1;
         d=sqrt(pow(X,2)+pow(Y,2));
 
-        //System.out.println(d);
-        //float a1,a2;
-        //a1=pow(r1,2)*PI;;
-        //a2=pow(r2,2)*PI;
 
-//        if ((r1+r2)<=d)
-        if (pow(X,2)+pow(Y,2)<pow(R,2) AND )
+        if ((r1+r2)<=d)
+        //if (pow(X,2)+pow(Y,2)<pow(R,2) AND )
             System.out.println("Collision detected");
         else
             System.out.println("Collision NOT detected");
