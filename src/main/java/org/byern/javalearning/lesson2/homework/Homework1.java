@@ -53,6 +53,9 @@ public class Homework1 {
         //b= reader.nextBoolean();
         //test zmian
 
+        //ternary operator "?"
+        
+
         double d; //distance between centers of circles
         double X,Y,R;
         X=x2-x1;
