@@ -60,6 +60,7 @@ public class Homework1 {
         System.out.println("2nd CIRCLE\n" +
                 "Coordinates: " + x2 + " : " + y2 + "\n" +
                 "Radius: " + r2 + "\n");
+
         if ( x1 == x2 && y1 == y2){
             if (r1 == r2){
                 System.out.println("Circles have same center AND overlapping!");
