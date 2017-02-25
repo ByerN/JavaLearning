@@ -1,5 +1,7 @@
 package org.byern.javalearning.lesson2.homework;
 
+import java.util.Scanner;
+
 /**
  * Created by ByerN on 21.02.2017.
  */
@@ -31,6 +33,41 @@ public class Homework2 {
      * 
      */
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Provide first rectangle left-bottom corner coordinates: ");
+        int x1 = scanner.nextInt();
+        int y1 = scanner.nextInt();
+
+        System.out.print("Provide first rectangle width and height: ");
+        int w1 = scanner.nextInt();
+        int h1 = scanner.nextInt();
+
+        System.out.print("Provide second rectangle left-bottom corner coordinates: ");
+        int x2 = scanner.nextInt();
+        int y2 = scanner.nextInt();
+
+        System.out.print("Provide second rectangle width and height: ");
+        int w2 = scanner.nextInt();
+        int h2 = scanner.nextInt();
+
+        boolean collision = false;
+
+        if( x2 <= x1 + w1 && x2 > x1 && y2 >= y1 && y2 <= y1 + w1 ) {
+            collision = true;
+        } else if( x2 <= x1 + w1 && x2 > x1 && y2 + w2 >= y1 && y2 + w2 <= y1 + w1 ) {
+            collision = true;
+        } else if( x2 + w2 <= x1 + w1 && x2 + w2 > x1 && y2 >= y1 && y2 <= y1 + w1 ) {
+             collision = true;
+        } else if( x2 + w2 <= x1 + w1 && x2 + w2 > x1 && y2 + w2 >= y1 && y2 + w2 <= y1 + w1 ) {
+            collision = true;
+        }
+
+        if (collision) {
+            System.out.println("Collision detected.");
+        } else {
+            System.out.println("Collision not detected.");
+        }
     }
 
 }

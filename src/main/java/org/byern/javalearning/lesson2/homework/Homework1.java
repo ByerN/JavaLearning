@@ -1,5 +1,7 @@
 package org.byern.javalearning.lesson2.homework;
 
+import java.util.Scanner;
+
 /**
  * Created by ByerN on 21.02.2017.
  */
@@ -30,6 +32,29 @@ public class Homework1 {
      *
      */
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Provide first circle center coordinates: ");
+        int x1 = scanner.nextInt();
+        int y1 = scanner.nextInt();
+
+        System.out.print("Provide first circle radius: ");
+        int r1 = scanner.nextInt();
+
+        System.out.print("Provide second circle center coordinates: ");
+        int x2 = scanner.nextInt();
+        int y2 = scanner.nextInt();
+
+        System.out.print("Provide second circle radius: ");
+        int r2 = scanner.nextInt();
+
+        double d = Math.sqrt(Math.pow(x2-x1, 2) + Math.pow(y2-y1, 2));
+
+        if (d < r1 + r2) {
+            System.out.println("Collision detected.");
+        } else {
+            System.out.println("Collision not detected.");
+        }
     }
 
 }
