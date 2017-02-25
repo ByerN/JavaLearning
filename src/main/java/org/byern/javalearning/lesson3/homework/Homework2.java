@@ -26,107 +26,137 @@ public class Homework2 {
         Scanner scanner = new Scanner(System.in);
 
         //Game level:
-        int[][] map = {
+        int[][][] map = {
+            {
                 {0, 1, 4, 1},
                 {0, 1, 0, 1},
                 {1, 1, 0, 1},
                 {3, 0, 2, 5},
+            },
+            {
+                {0, 1, 4, 1, 1},
+                {0, 1, 0, 0, 0},
+                {1, 1, 0, 0, 1},
+                {1, 1, 0, 0, 0},
+                {3, 0, 0, 5, 2},
+            },
+            {
+                {0, 1, 4, 1, 1, 2},
+                {0, 1, 0, 0, 0, 0},
+                {1, 1, 5, 0, 1, 1},
+                {1, 1, 0, 0, 0, 1},
+                {1, 1, 0, 0, 0, 1},
+                {3, 0, 0, 5, 0, 0},
+            }
         };
 
-        //Search and set player starting point
-        int playerX = 0;
-        int playerY = 0;
-        for (int y = 0; y < map.length; y++) {
-            for (int x = 0; x < map[y].length; x++) {
-                if (map[y][x] == 2) {
-                    playerX = x;
-                    playerY = y;
-                    break;
-                }
+        boolean gameover = false;
+
+        for(int level = 0; level < map.length; level++) {
+
+            if (gameover) {
+                break;
             }
-        }
 
-        boolean keyCollected = false;
-        boolean doorOpen = false;
-
-
-        while (!doorOpen) {
-            //Render game level
-            for (int y = 0; y < map.length; y++) {
-                for (int x = 0; x < map[y].length; x++) {
-                    if (x == playerX && y == playerY) {
-                        System.out.print("@"); //Player
-                    } else if (map[y][x] == 2 || (keyCollected && map[y][x] == 3)) {
-                        //player starting position and collected key should not be visible
-                        System.out.print(0);
-                    } else {
-                        System.out.print(map[y][x]);
+            System.out.println();
+            System.out.println("Lets play level " + (level + 1));
+            System.out.println();
+            //Search and set player starting point
+            int playerX = 0;
+            int playerY = 0;
+            for (int y = 0; y < map[level].length; y++) {
+                for (int x = 0; x < map[level][y].length; x++) {
+                    if (map[level][y][x] == 2) {
+                        playerX = x;
+                        playerY = y;
+                        break;
                     }
                 }
-                System.out.println();
             }
 
-            System.out.println("Where do you want to go? (w -> up, s -> down, a -> left, d -> right");
-            char move = scanner.next().charAt(0);
+            boolean keyCollected = false;
+            boolean doorOpen = false;
 
-            //calculate position after player move
-            int nextX = playerX;
-            int nextY = playerY;
-            if (move == 'w') {
-                nextY--;//Y is inverted (up is down)
-            } else if (move == 's') {
-                nextY++;
-            } else if (move == 'a') {
-                nextX--;
-            } else if (move == 'd') {
-                nextX++;
-            } else if (move == 'q') {
-                System.out.println("Quit!");
-                return;
-            }
 
-            //if true -> don't move player
-            boolean resetMove = false;
+            while (!doorOpen) {
+                //Render game level
+                for (int y = 0; y < map[level].length; y++) {
+                    for (int x = 0; x < map[level][y].length; x++) {
+                        if (x == playerX && y == playerY) {
+                            System.out.print("@"); //Player
+                        } else if (map[level][y][x] == 2 || (keyCollected && map[level][y][x] == 3)) {
+                            //player starting position and collected key should not be visible
+                            System.out.print(0);
+                        } else {
+                            System.out.print(map[level][y][x]);
+                        }
+                    }
+                    System.out.println();
+                }
 
-            //check if next move is out of array bound
-            if (nextY < 0 ||
-                    nextY >= map.length ||
-                    nextX < 0 ||
-                    nextX >= map[nextY].length) {
-                System.out.println("Cannot pass here!");
-                resetMove = true;
-            } else {
-                int nextField = map[nextY][nextX];
+                System.out.println("Where do you want to go? (w -> up, s -> down, a -> left, d -> right");
+                char move = scanner.next().charAt(0);
 
-                if (nextField == 1) {//wall
+                //calculate position after player move
+                int nextX = playerX;
+                int nextY = playerY;
+                if (move == 'w') {
+                    nextY--;//Y is inverted (up is down)
+                } else if (move == 's') {
+                    nextY++;
+                } else if (move == 'a') {
+                    nextX--;
+                } else if (move == 'd') {
+                    nextX++;
+                } else if (move == 'q') {
+                    System.out.println("Quit!");
+                    return;
+                }
+
+                //if true -> don't move player
+                boolean resetMove = false;
+
+                //check if next move is out of array bound
+                if (nextY < 0 ||
+                        nextY >= map[level].length ||
+                        nextX < 0 ||
+                        nextX >= map[level][nextY].length) {
                     System.out.println("Cannot pass here!");
                     resetMove = true;
-                } else if (nextField == 0 || nextField == 2) {//floor or starting point
-                    System.out.println("You passed through.");
-                } else if (nextField == 3) {//key
-                    if (!keyCollected) {//collect if not collected
-                        keyCollected = true;
-                        System.out.println("Collected key!");
-                    } else {//if collected -> acts like floor
-                        System.out.println("You passed through.");
-                    }
-                } else if (nextField == 4) {//door
-                    if (!keyCollected) {//locked if key is not collected
-                        System.out.println("It's locked!");
-                        resetMove = true;
-                    } else {//opens if key is collected
-                        doorOpen = true;
-                        System.out.println("Opened. You won!");
-                    }
-                } else if (nextField == 5) {//trap
-                    System.out.println("It's a trap! You died...");
-                    break;
-                }
-            }
+                } else {
+                    int nextField = map[level][nextY][nextX];
 
-            if (!resetMove) {//move player if we don't want to reset move
-                playerX = nextX;
-                playerY = nextY;
+                    if (nextField == 1) {//wall
+                        System.out.println("Cannot pass here!");
+                        resetMove = true;
+                    } else if (nextField == 0 || nextField == 2) {//floor or starting point
+                        System.out.println("You passed through.");
+                    } else if (nextField == 3) {//key
+                        if (!keyCollected) {//collect if not collected
+                            keyCollected = true;
+                            System.out.println("Collected key!");
+                        } else {//if collected -> acts like floor
+                            System.out.println("You passed through.");
+                        }
+                    } else if (nextField == 4) {//door
+                        if (!keyCollected) {//locked if key is not collected
+                            System.out.println("It's locked!");
+                            resetMove = true;
+                        } else {//opens if key is collected
+                            doorOpen = true;
+                            System.out.println("Opened. You won!");
+                        }
+                    } else if (nextField == 5) {//trap
+                        gameover = true;
+                        System.out.println("It's a trap! You died...");
+                        break;
+                    }
+                }
+
+                if (!resetMove) {//move player if we don't want to reset move
+                    playerX = nextX;
+                    playerY = nextY;
+                }
             }
         }
     }
