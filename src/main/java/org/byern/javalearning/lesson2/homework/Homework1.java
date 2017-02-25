@@ -25,10 +25,8 @@ public class Homework1 {
 
         double distance = Math.sqrt( Math.pow(( x2-x1 ), 2 )  + Math.pow(( y2-y1 ), 2 ));
 
-        if (inclusive && distance <= Math.abs(r1 - r2)) {
-            System.out.println("Collision detected! Inclusive");
-        } else if (!inclusive && distance <= r1 + r2){
-            System.out.println("Collision detected! Exclusive");
+        if (inclusive ? distance <= (r1 + r2) : distance < (r1 + r2)) {
+            System.out.println("Collision detected!");
         } else {
             System.out.println("Collision not detected!");
         }
