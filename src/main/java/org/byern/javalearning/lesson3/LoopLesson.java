@@ -149,7 +149,17 @@ public class LoopLesson {
             System.out.println("Number: " + number);
         }
 
-        /* //Some funny things
+        String[] strzalka = {"  x  "," xxx ","xxxxx"," xxx ", " xxx "," xxx "," xxx "," xxx "," xxx ","xxxxx"};
+
+        for(int i=0;i<1000;i++){
+            for (int n = 0; n<10;n++){
+                System.out.println(strzalka[n]);
+            }
+Thread.sleep(300);
+
+        }
+
+    /*     //Some funny things
         for(int n=0; n< 10000; n++){
             if(n % 10 == 0){
                 System.out.println("   x   ");
@@ -173,8 +183,8 @@ public class LoopLesson {
                 System.out.println("  xxx  ");
             }
 
-            Thread.sleep(300);
+            Thread.sleep(90);
         }
-        */
+*/
     }
 }
