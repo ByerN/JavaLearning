@@ -15,7 +15,6 @@ public class SelfDocumentingCodeExample {
     private static final char QUIT_CHARACTER = 'q';
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
 
         //Game level:
         int[][][] map = {
@@ -39,10 +38,13 @@ public class SelfDocumentingCodeExample {
                 },
         };
 
+        playGame(map);
+    }
+
+    public static void playGame(int[][][] map) {
         int currentLevel = 0;
-
+        Scanner scanner = new Scanner(System.in);
         GameState endGameState = playGame(scanner, map, currentLevel);
-
         endGame(endGameState);
     }
 
@@ -87,19 +89,19 @@ public class SelfDocumentingCodeExample {
                     nextX += move.getXDiff();
                     nextY += move.getYDiff();
 
-                    boolean resetMove;
+                    boolean moveAllowed;
 
                     if (checkMapBounds(currentLevel, nextX, nextY)) {
                         processWallMove();
-                        resetMove = true;
+                        moveAllowed = false;
                     } else {
                         int nextField = currentLevel[nextY][nextX];
                         TileType tileType = TileType.getTileTypeById(nextField);
-                        resetMove = !tileType.isMoveAllowed();
+                        moveAllowed = tileType.isMoveAllowed();
                         gameState = processGameState(gameState, tileType);
                     }
 
-                    if (!resetMove) {
+                    if (moveAllowed) {
                         playerX = nextX;
                         playerY = nextY;
                     }
