@@ -1,94 +1,20 @@
 package org.byern.javalearning.lesson4.example;
 
+import org.byern.javalearning.lesson4.example.enumeration.GameState;
+import org.byern.javalearning.lesson4.example.enumeration.Move;
+import org.byern.javalearning.lesson4.example.enumeration.TileType;
+
 import java.util.Scanner;
 
 /**
  * Created by ByerN on 22.02.2017.
  */
-public class Lesson3Homework2Refactor {
+public class SelfDocumentingCodeExample {
 
-    public static final String PLAYER_SIGN = "@";
-    public static final char QUIT_CHARACTER = 'q';
-
-    enum Move {
-        UP('w', 0, -1),
-        DOWN('s', 0, 1),
-        LEFT('a', -1, 0),
-        RIGHT('d', 1, 0);
-
-        private final char key;
-        private final int xDiff;
-        private final int yDiff;
-
-        Move(char key, int xDiff, int yDiff) {
-            this.key = key;
-            this.xDiff = xDiff;
-            this.yDiff = yDiff;
-        }
-
-        public static Move getMoveByCharacter(char character) {
-            Move result = null;
-            for (Move move : Move.values()) {
-                if (move.key == character) {
-                    result = move;
-                    break;
-                }
-            }
-            return result;
-        }
-
-        public int getXDiff() {
-            return xDiff;
-        }
-
-        public int getYDiff() {
-            return yDiff;
-        }
-    }
-
-    enum GameState {
-        PLAYING,
-        PLAYING_WITH_KEY,
-        NEXT_LEVEL,
-        GAME_FINISHED,
-        DEAD,
-        QUIT_GAME
-    }
-
-    enum TileType{
-        FLOOR(0, true),
-        WALL(1, false),
-        STARTING_POINT(2, true),
-        KEY(3, true),
-        DOOR(4, false),
-        TRAP(5, true);
-
-        private final int id;
-        private final boolean moveAllowed;
-
-        TileType(int id, boolean moveAllowed) {
-            this.id = id;
-            this.moveAllowed = moveAllowed;
-        }
-
-        public static TileType getTileTypeById(int id){
-            TileType result = WALL;
-            for (TileType tileType : TileType.values()) {
-                if (tileType.id == id) {
-                    result = tileType;
-                    break;
-                }
-            }
-            return result;
-        }
-
-        public boolean isMoveAllowed() {
-            return moveAllowed;
-        }
-    }
+    private static final String PLAYER_SIGN = "@";
+    private static final char QUIT_CHARACTER = 'q';
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
 
         //Game level:
         int[][][] map = {
@@ -112,18 +38,21 @@ public class Lesson3Homework2Refactor {
                 },
         };
 
+        playGame(map);
+    }
+
+    public static void playGame(int[][][] map) {
         int currentLevel = 0;
-
-        GameState endGameState = mainGameLoop(scanner, map, currentLevel);
-
+        Scanner scanner = new Scanner(System.in);
+        GameState endGameState = playGame(scanner, map, currentLevel);
         endGame(endGameState);
     }
 
-    private static GameState mainGameLoop(Scanner scanner, int[][][] map, int currentLevel) {
+    private static GameState playGame(Scanner scanner, int[][][] map, int currentLevel) {
         GameState gameState = GameState.PLAYING;
         while (gameState == GameState.PLAYING) {
 
-            gameState = playLevel(scanner, map[currentLevel], gameState);
+            gameState = playGameLevel(scanner, map[currentLevel], gameState);
 
             if(gameState == GameState.NEXT_LEVEL){
                 currentLevel++;
@@ -136,7 +65,7 @@ public class Lesson3Homework2Refactor {
         return gameState;
     }
 
-    private static GameState playLevel(Scanner scanner, int[][] currentLevel, GameState gameState) {
+    private static GameState playGameLevel(Scanner scanner, int[][] currentLevel, GameState gameState) {
 
         int[] playerCoordinates = findPlayerStartingPoint(currentLevel);
 
@@ -160,19 +89,19 @@ public class Lesson3Homework2Refactor {
                     nextX += move.getXDiff();
                     nextY += move.getYDiff();
 
-                    boolean resetMove;
+                    boolean moveAllowed;
 
                     if (checkMapBounds(currentLevel, nextX, nextY)) {
                         processWallMove();
-                        resetMove = true;
+                        moveAllowed = false;
                     } else {
                         int nextField = currentLevel[nextY][nextX];
                         TileType tileType = TileType.getTileTypeById(nextField);
-                        resetMove = !tileType.isMoveAllowed();
+                        moveAllowed = tileType.isMoveAllowed();
                         gameState = processGameState(gameState, tileType);
                     }
 
-                    if (!resetMove) {
+                    if (moveAllowed) {
                         playerX = nextX;
                         playerY = nextY;
                     }
@@ -294,8 +223,8 @@ public class Lesson3Homework2Refactor {
     }
 
     private static void renderTile(int tile, GameState gameState) {
-        if (tile == TileType.STARTING_POINT.id ||
-                (gameState == GameState.PLAYING_WITH_KEY && tile == TileType.KEY.id)) {
+        if (tile == TileType.STARTING_POINT.getId() ||
+                (gameState == GameState.PLAYING_WITH_KEY && tile == TileType.KEY.getId())) {
             System.out.print(0);
         } else {
             System.out.print(tile);
@@ -311,7 +240,7 @@ public class Lesson3Homework2Refactor {
         boolean startingPointSet = false;
         for (int y = 0; y < level.length && !startingPointSet; y++) {
             for (int x = 0; x < level[y].length; x++) {
-                if (level[y][x] == TileType.STARTING_POINT.id) {
+                if (level[y][x] == TileType.STARTING_POINT.getId()) {
                     playerCoordinates[0] = x;
                     playerCoordinates[1] = y;
                     startingPointSet = true;
