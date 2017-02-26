@@ -45,20 +45,22 @@ public class Homework2 {
                         {3, 0, 0, 0, 0, 0, 0, 0},
                         {1, 1, 1, 1, 1, 1, 1, 5},
                 },
-        } ;
+        };
 
         int currentLevel = 0;
 
-        while(currentLevel < map.length) {
+        while (currentLevel < map.length) {
 
             //Search and set player starting point
             int playerX = 0;
             int playerY = 0;
-            for (int y = 0; y < map[currentLevel].length; y++) {
+            boolean startingPointSet = false;
+            for (int y = 0; y < map[currentLevel].length && !startingPointSet; y++) {
                 for (int x = 0; x < map[currentLevel][y].length; x++) {
                     if (map[currentLevel][y][x] == 2) {
                         playerX = x;
                         playerY = y;
+                        startingPointSet = true;
                         break;
                     }
                 }
