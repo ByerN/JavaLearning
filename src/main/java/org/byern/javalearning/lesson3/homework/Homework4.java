@@ -59,15 +59,15 @@ public class Homework4 {
 
         int a = VIEWPORT_X / 2;
         int b = VIEWPORT_Y / 2;
-        int Ax = new Random().nextInt(VIEWPORT_X);
-        int Ay = new Random().nextInt(VIEWPORT_Y);
-        int Bx = new Random().nextInt(VIEWPORT_X);
-        int By = new Random().nextInt(VIEWPORT_Y);
-        int Cx = new Random().nextInt(VIEWPORT_X);
-        int Cy = new Random().nextInt(VIEWPORT_Y);
-        int Dx = new Random().nextInt(VIEWPORT_X);
-        int Dy = new Random().nextInt(VIEWPORT_Y);
-        int r = 0;
+        Random random = new Random();
+        int Ax = random.nextInt(VIEWPORT_X);
+        int Ay = random.nextInt(VIEWPORT_Y);
+        int Bx = random.nextInt(VIEWPORT_X);
+        int By = random.nextInt(VIEWPORT_Y);
+        int Cx = random.nextInt(VIEWPORT_X);
+        int Cy = random.nextInt(VIEWPORT_Y);
+        int Dx = random.nextInt(VIEWPORT_X);
+        int Dy = random.nextInt(VIEWPORT_Y);
 
         String[][] printArray = new String[VIEWPORT_X][VIEWPORT_Y];
 
