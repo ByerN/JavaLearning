@@ -79,11 +79,11 @@ public class Homework3 {
 
         for (int x = 0; x < VIEWPORT_X; x++) {
             for (int y = 0; y < VIEWPORT_Y; y++) {
-                int leftSide = (x - a) * (x - a) + (y - b) * (y - b) ;
-                int rightSide = r*r;
-                if (Math.abs(leftSide - rightSide) < r){
+                int leftSide = (x - a) * (x - a) + (y - b) * (y - b);
+                int rightSide = r * r;
+                if (Math.abs(leftSide - rightSide) < r) {
                     printArray[x][y] = "+";
-                }else{
+                } else {
                     printArray[x][y] = " ";
                 }
             }
