@@ -26,5 +26,11 @@ public class IntellijShortcutsLesson {
      *
      *  CTRL + N -> search by class name (+ SHIFT for file name)
      *
+     *  CTRL + G -> go to line
+     *
+     *  CTRL + LMB -> go to method/field
+     *  CTRL + ALT + B -> go to implementation
+     *
+     *  CTL + ALT + M/C/V -> extract method/constant/variable
      */
 }
