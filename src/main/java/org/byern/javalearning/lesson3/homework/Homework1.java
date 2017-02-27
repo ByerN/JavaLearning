@@ -17,6 +17,7 @@ public class Homework1 {
         System.out.println("Provide n");
         int n = scanner.nextInt();
 
+        //play whole animation n-times -> not n frames
         for(int i = 0; i < n; i++){
 
             System.out.println(output[i % 10]);

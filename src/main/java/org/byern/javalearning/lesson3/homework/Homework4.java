@@ -34,8 +34,11 @@ public class Homework4 {
         for(int i = 0; i <= COUNTER; i++)
         {
             t = i / (float) SEGMENT_COUNT;
+            //int[] P1 = {rand.nextInt(VIEWPORT_Y), rand.nextInt(VIEWPORT_X)};
+            // array indexes: 0 -> Y, 1 -> X
             x = (int)(Math.pow(1-t, 3) * P1[0] + 3 * Math.pow(1-t, 2) * t * P2[0] + 3 * Math.pow(1-t, 2) * Math.pow(t, 2) * P3[0] + Math.pow(t, 3) * P4[0]);
             y = (int)(Math.pow(1-t, 3) * P1[1] + 3 * Math.pow((int)1-t, 2) * t * P2[1] + 3 * Math.pow(1-t, 2) * Math.pow(t, 2) * P3[1] + Math.pow(t, 3) * P4[1]);
+            //double inverted -> it looks like working one, but it's misleading
             curve[x][y] = '+';
         }
 
@@ -44,7 +47,7 @@ public class Homework4 {
         curve[P3[0]][P3[1]] = 'C';
         curve[P4[0]][P4[1]] = 'D';
 
-        for(row = 0; row < VIEWPORT_Y; row++)
+        for(row = 0; row < VIEWPORT_Y; row++)//bracket starts here
         {
             for(column = 0; column < VIEWPORT_X; column++)
             {
