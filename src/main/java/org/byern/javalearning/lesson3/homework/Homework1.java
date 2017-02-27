@@ -1,8 +1,7 @@
 package org.byern.javalearning.lesson3.homework;
 
-/**
- * Created by ByerN on 22.02.2017.
- */
+import java.util.Scanner;
+
 public class Homework1 {
 
     public static void main(String[] args) throws InterruptedException {
@@ -11,32 +10,30 @@ public class Homework1 {
          *
          * -play whole animation n-times -> n provided as input
          */
-        for(int n=0; n< 40; n++){
-            if(n % 10 == 0){
-                System.out.println("   x   ");
-            } else if(n % 10 == 1){
-                System.out.println("  xxx  ");
-            } else if(n % 10 == 2){
-                System.out.println(" xxxxx ");
-            } else if(n % 10 == 3){
-                System.out.println("  xxx  ");
-            } else if(n % 10 == 4){
-                System.out.println("  xxx  ");
-            } else if(n % 10 == 5){
-                System.out.println("  xxx  ");
-            } else if(n % 10 == 6){
-                System.out.println("  xxx  ");
-            } else if(n % 10 == 7){
-                System.out.println("  xxx  ");
-            } else if(n % 10 == 8){
-                System.out.println("  xxx  ");
-            } else if(n % 10 == 9){
-                System.out.println("  xxx  ");
+        String[] arrow = {
+                "   x   ",
+                "  xxx  ",
+                " xxxxx ",
+                "  xxx  ",
+                "  xxx  ",
+                "  xxx  ",
+                "  xxx  ",
+                "  xxx  ",
+                "  xxx  ",
+                "  xxx  "
+        };
+
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("How many arrows should be printed: ");
+        int howMany = scanner.nextInt();
+
+        for (int n = 0; n < howMany; n++) {
+            for (String line : arrow) {
+                System.out.println(line);
+                Thread.sleep(300);
             }
-
-            Thread.sleep(300);
         }
-
     }
 
 }
