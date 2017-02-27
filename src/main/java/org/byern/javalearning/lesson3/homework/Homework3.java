@@ -1,5 +1,6 @@
 package org.byern.javalearning.lesson3.homework;
 
+import javax.swing.text.View;
 import java.util.Random;
 
 /**
@@ -9,7 +10,6 @@ public class Homework3 {
 
     public static final int VIEWPORT_X = 100;
     public static final int VIEWPORT_Y = 30;
-    public static final double PROBE = 0.001;
 
     public static void main(String[] args) {
          /*
@@ -70,6 +70,34 @@ public class Homework3 {
          * -Math.PI (constant)
          * -Random.nextInt(n)
          */
+
+        int a = VIEWPORT_X / 2;
+        int b = VIEWPORT_Y / 2;
+        int r = new Random().nextInt(VIEWPORT_Y);
+
+        String[][] printArray = new String[VIEWPORT_X][VIEWPORT_Y];
+
+        for (int x = 0; x < VIEWPORT_X; x++) {
+            for (int y = 0; y < VIEWPORT_Y; y++) {
+                int leftSide = (x - a) * (x - a) + (y - b) * (y - b) ;
+                int rightSide = r*r;
+                if (Math.abs(leftSide - rightSide) < r){
+                    printArray[x][y] = "+";
+                }else{
+                    printArray[x][y] = " ";
+                }
+            }
+        }
+        printArray[a][b] = "X";
+
+        //It was lesson for tables and loops. Instead I would just print in loop above
+
+        for (int y = 0; y < VIEWPORT_Y; y++) {
+            for (int x = 0; x < VIEWPORT_X; x++) {
+                System.out.print(printArray[x][y]);
+            }
+            System.out.println("");
+        }
     }
 
 }
