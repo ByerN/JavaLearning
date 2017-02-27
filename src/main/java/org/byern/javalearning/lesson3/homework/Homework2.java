@@ -48,6 +48,7 @@ public class Homework2 {
         };
 
         for (int level = 0; level < map.length; level++) {
+            boolean amIDied = false;
             //Search and set player starting point
             int playerX = 0;
             int playerY = 0;
@@ -135,6 +136,7 @@ public class Homework2 {
                         }
                     } else if (nextField == 5) {//trap
                         System.out.println("It's a trap! You died...");
+                        amIDied = true;
                         break;
                     }
                 }
@@ -144,8 +146,11 @@ public class Homework2 {
                     playerY = nextY;
                 }
             }
-            if (level != map.length - 1) {
-                System.out.println(". Let try with next one!");
+            if (amIDied) {
+                System.out.println("Burn motherfucker!");
+                break;
+            } else if (level != map.length - 1) {
+                System.out.println("Let try with next one!");
             } else {
                 System.out.println("Congratulations. You finished the game!");
             }
