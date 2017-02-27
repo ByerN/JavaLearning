@@ -75,7 +75,7 @@ public class Homework3 {
         String[][] circle = new String[VIEWPORT_Y][VIEWPORT_X];
 
         System.out.print("Provide x, y and r: ");
-        int x = scanner.nextInt();
+        int x = scanner.nextInt();//"random circle"
         int y = scanner.nextInt();
         int r = scanner.nextInt();
 
@@ -85,7 +85,7 @@ public class Homework3 {
             }
         }
 
-        for (int i = x - r; i < x + r; i++) {
+        for (int i = x - r; i < x + r; i++) {//Doesn't look like one from example but it's interesting
             for (int j = y - r; j < y + r; j++) {
                 if (i > 0 && i < VIEWPORT_Y && j > 0 && j < VIEWPORT_X) {
                     double d = Math.round(Math.abs(Math.sqrt(Math.pow(i - x, 2) + Math.pow(j - y, 2))) - r);

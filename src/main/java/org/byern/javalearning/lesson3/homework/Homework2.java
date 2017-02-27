@@ -47,7 +47,7 @@ public class Homework2 {
                 {0, 0, 0, 1},
         };
 
-        int[][] map = map1;
+        int[][] map = map1;//This solution is not scaling. Next level makes you use next case in switch
 
         while (nextLevel) {
             //Search and set player starting point
@@ -142,8 +142,8 @@ public class Homework2 {
                                 nextLevel = scanner.next().equals("Y");
                                 if (nextLevel) {
                                     switch (currentLevel) {
-                                        case 1: map = map2; break;
-                                        case 2: map = map3; break;
+                                        case 1: map = map2; break;//don't put all in one line
+                                        case 2: map = map3; break;//check what CTRL+L will do now
                                     }
                                     currentLevel++;
                                 }

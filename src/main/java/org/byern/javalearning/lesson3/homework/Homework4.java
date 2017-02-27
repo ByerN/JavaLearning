@@ -59,7 +59,7 @@ public class Homework4 {
         Scanner scanner = new Scanner(System.in);
         String[][] line = new String[VIEWPORT_Y][VIEWPORT_X];
 
-        System.out.print("a: ");
+        System.out.print("a: ");//"random"
         int ax = scanner.nextInt();
         int ay = scanner.nextInt();
 
@@ -82,9 +82,26 @@ public class Homework4 {
         }
 
         for (double t = 0; t <= 1; t += PROBE) {
-            int valueX = (int)Math.round(ax * Math.pow(1 - t, 3) + 3 * bx * t * Math.pow(1 - t, 2) + 3 * cx * Math.pow(t, 2) * (1 - t) + dx * Math.pow(t, 3));
+            int valueX = (int)Math.round(ax * Math.pow(1 - t, 3) + 3 * bx * t * Math.pow(1 - t, 2) + 3 * cx * Math.pow(t, 2) * (1 - t) + dx * Math.pow(t, 3));//too long line
             int valueY = (int)Math.round(ay * Math.pow(1 - t, 3) + 3 * by * t * Math.pow(1 - t, 2) + 3 * cy * Math.pow(t, 2) * (1 - t) + dy * Math.pow(t, 3));
 
+            //axis is inverted now -> line[valueY][valueX]
+            /*
+            a:
+            0
+            0
+            b: 2
+            2
+            c: 4
+            4
+            d: 3
+            0
+            A
+             +
+             +B
+            D++
+                C
+             */
             line[valueX][valueY] = "+";
         }
 

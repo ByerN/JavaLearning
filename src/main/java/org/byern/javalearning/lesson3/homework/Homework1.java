@@ -16,13 +16,15 @@ public class Homework1 {
 
         Scanner scanner = new Scanner(System.in);
         int n;
+        //Too long line
         String[] x = {"   x   ", "  xxx  ", " xxxxx ", "  xxx  ", "  xxx  ", "  xxx  ", "  xxx  ", "  xxx  ", "  xxx  ", "  xxx  "};
 
         System.out.print("n = ");
         n = scanner.nextInt();
 
+        //play whole animation n-times -> not n frames
         for (int i = 0; i < n; i++) {
-            System.out.println(x[i % 10]);
+            System.out.println(x[i % 10]);//10 -> not scaling -> better use array length
             Thread.sleep(300);
         }
     }
