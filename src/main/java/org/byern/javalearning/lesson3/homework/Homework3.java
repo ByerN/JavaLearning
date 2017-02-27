@@ -12,42 +12,76 @@ public class Homework3 {
         Random rand = new Random();
 
         char[][] circle = new char[VIEWPORT_Y][VIEWPORT_X];
-        int x, y, row, column;
+        int x, y;
         int centerX = (int)(VIEWPORT_X/2);
         int centerY = (int)(VIEWPORT_Y/2);
         int r = rand.nextInt((int)(Math.max(VIEWPORT_X, VIEWPORT_Y)/2));
         double angle;
 
-        for(row = 0; row < VIEWPORT_Y; row++)
-        {
-            for(column = 0; column < VIEWPORT_X; column++)
-            {
-                circle[row][column] = ' ';
-            }
-        }
-
-        for(int i=0;  i < 360;  i++)
-        {
+        for(int i=0;  i < 360;  i++) {
             angle = Math.toRadians(i);
             x = (int)(r * Math.cos(angle)) + centerX;
             y = (int)(r * Math.sin(angle)) + centerY;
 
-            if(x > -1 && y > -1 && x < VIEWPORT_X && y < VIEWPORT_Y)
-            {
+            if(x > -1 && y > -1 && x < VIEWPORT_X && y < VIEWPORT_Y) {
                 circle[y][x] = '+';
             }
         }
 
-        circle[centerY][centerX] = 'X';
-
-        for(row = 0; row < VIEWPORT_Y; row++)
-        {
-            for(column = 0; column < VIEWPORT_X; column++)
-            {
-                System.out.print(circle[row][column]);
+        for(int row = 0; row < VIEWPORT_Y; row++) {
+            for(int column = 0; column < VIEWPORT_X; column++) {
+                if(circle[row][column] == '+') {
+                    System.out.print('+');
+                } else if(row == centerY && column == centerX) {
+                    System.out.print('X');
+                } else {
+                    System.out.print(' ');
+                }
             }
-            System.out.println(" ");
+            System.out.println();
         }
+
+//        PREVIOUS VERSION
+
+//        Random rand = new Random();
+//
+//        char[][] circle = new char[VIEWPORT_Y][VIEWPORT_X];
+//        int x, y, row, column;
+//        int centerX = (int)(VIEWPORT_X/2);
+//        int centerY = (int)(VIEWPORT_Y/2);
+//        int r = rand.nextInt((int)(Math.max(VIEWPORT_X, VIEWPORT_Y)/2));
+//        double angle;
+//
+//        for(row = 0; row < VIEWPORT_Y; row++)
+//        {
+//            for(column = 0; column < VIEWPORT_X; column++)
+//            {
+//                circle[row][column] = ' ';
+//            }
+//        }
+//
+//        for(int i=0;  i < 360;  i++)
+//        {
+//            angle = Math.toRadians(i);
+//            x = (int)(r * Math.cos(angle)) + centerX;
+//            y = (int)(r * Math.sin(angle)) + centerY;
+//
+//            if(x > -1 && y > -1 && x < VIEWPORT_X && y < VIEWPORT_Y)
+//            {
+//                circle[y][x] = '+';
+//            }
+//        }
+//
+//        circle[centerY][centerX] = 'X';
+//
+//        for(row = 0; row < VIEWPORT_Y; row++)
+//        {
+//            for(column = 0; column < VIEWPORT_X; column++)
+//            {
+//                System.out.print(circle[row][column]);
+//            }
+//            System.out.println(" ");
+//        }
     }
 
 }
