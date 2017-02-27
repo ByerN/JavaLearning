@@ -24,18 +24,38 @@ public class Homework2 {
          * -Add 2 more levels.
          */
         Scanner scanner = new Scanner(System.in);
-
         //Game level:
-        int[][] map = {
+
+        int[][] map1 = {
                 {0, 1, 4, 1},
                 {0, 1, 0, 1},
                 {1, 1, 0, 1},
                 {3, 0, 2, 5},
         };
+        int[][] map2 = {
+                {0, 1, 4, 1},
+                {0, 1, 0, 1},
+                {1, 1, 0, 1},
+                {3, 0, 2, 5},
+        };
+        int[][] map3 = {
+                {0, 1, 4, 1},
+                {0, 1, 0, 1},
+                {1, 1, 0, 1},
+                {3, 0, 2, 5},
+        };
+        int[][][] mapy = {map1, map2, map3};
+        int[][] map;
+
 
         //Search and set player starting point
         int playerX = 0;
         int playerY = 0;
+
+        for (int level =0; level<3; level++){
+            map = mapy[level];
+
+
         for (int y = 0; y < map.length; y++) {
             for (int x = 0; x < map[y].length; x++) {
                 if (map[y][x] == 2) {
@@ -129,6 +149,13 @@ public class Homework2 {
                 playerY = nextY;
             }
         }
+        //going to next level; cancelling door and key variables
+            System.out.println("Congratulation!!!");
+            System.out.println("You have passed to the next level");
+        doorOpen=false;
+        keyCollected=false;
+        }
+
     }
 
 }
