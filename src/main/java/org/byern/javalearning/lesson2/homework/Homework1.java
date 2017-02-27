@@ -58,11 +58,24 @@ public class Homework1 {
         System.out.print("R2 = ");
         float r2 = scanner.nextFloat();
 
-        System.out.print("Inclusive Collision? true/false: ");
-        boolean inclusion = scanner.nextBoolean();
+        System.out.print("Inclusive Collision? yes/no: ");
+        String answer = scanner.next();
+
+        while (!(answer.equals("yes") || answer.equals("no"))) {
+            System.out.println("Please provide yes or no!");
+            answer = scanner.next();
+        }
+
+        boolean inclusion;
+
+        if (answer.equals("yes")) {
+            inclusion = true;
+        } else {
+            inclusion = false;
+        }
 
         System.out.println("Result:");
-        System.out.print(collisionDetection(x1, y1, r1, x2, y2, r2, inclusion));
+        System.out.print("The two circles collide: " + collisionDetection(x1, y1, r1, x2, y2, r2, inclusion));
     }
 
     public static boolean collisionDetection (float x1, float y1, float r1, float x2, float y2, float r2, boolean inclusionCollisionMatters){
