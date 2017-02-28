@@ -11,8 +11,8 @@ public class Homework2 {
          * 1. using recursion
          * 2. using loop
          *
-         * calculateFactorialUsingRecursion(int n)
-         * calculateFactorialUsingLoop(int n)
+         * int calculateFactorialUsingRecursion(int n)
+         * int calculateFactorialUsingLoop(int n)
          *
          * n -> indicates which number to calculate
          *

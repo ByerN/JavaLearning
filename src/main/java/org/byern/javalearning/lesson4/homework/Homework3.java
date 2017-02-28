@@ -6,7 +6,8 @@ package org.byern.javalearning.lesson4.homework;
 public class Homework3 {
 
     public static void main(String[] args) {
-        /*
+        /* dywan sierpinskiego
+        //argumentm jest proces zagniezdzania
          * Make a method returning array representing Sierpinski carpet
          * and print it's result.
          *
@@ -15,8 +16,8 @@ public class Homework3 {
          * width/height -> size o the returned array.
          * iterationNumber -> number of Sierpinski carpet iterations
          *
-         * Assume that width and height is multiplication of 3
-         *
+         * Assume that width and height is power of 3 - potega trojki
+         *wydrukowac na ekran
          */
     }
 }

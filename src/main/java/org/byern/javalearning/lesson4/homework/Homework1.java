@@ -11,8 +11,8 @@ public class Homework1 {
          * 1. using recursion
          * 2. using loop
          *
-         * calculateFibonacciNumberUsingRecursion(int n)
-         * calculateFibonacciNumberUsingLoop(int n)
+         * int calculateFibonacciNumberUsingRecursion(int n)
+         * int calculateFibonacciNumberUsingLoop(int n)
          *
          * n -> indicates which number to calculate
          *
