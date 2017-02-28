@@ -14,37 +14,33 @@ public class Homework3_Asia {
 
         Random random = new Random();
 
-        String map[][] = new String [VIEWPORT_Y][VIEWPORT_X];
+        String map[][] = new String[VIEWPORT_Y][VIEWPORT_X];
 
         int x = random.nextInt(VIEWPORT_X);
         int y = random.nextInt(VIEWPORT_Y);
 
 
         int minR = Math.min(VIEWPORT_X, VIEWPORT_Y);
-        int r = random.nextInt(minR);
+        int r = random.nextInt(minR) / 2;
 
-
-
-        for(double fi = 0; fi <= 2*(Math.PI); fi+=PROBE){
-            int x1 = (int) (r * (Math.cos(fi)));
-            int y1 = (int) (r * (Math.sin(fi)));
-
-
-            if(x1<x && y1<y){
-                map[x1][y1] = "x";
+        for (int i = 0; i < map.length; i++) {
+            for (int j = 0; j < map[i].length; j++) {
+                map[i][j] = " ";
             }
+        }
 
+        map[r][r] = "X";
+
+        for (double fi = 0; fi <= 2 * (Math.PI); fi += PROBE) {
+            int y1 = (int) (r * (Math.sin(fi)));
+            int x1 = (int) (r * (Math.cos(fi)));
+            map[y1 + r][x1 + r] = "x";
         }
 
 
-        for(int a = 0; a < VIEWPORT_Y; a++){
-            for(int b = 0; b < VIEWPORT_Y; b++){
-                if(a == x && b == y){
-                    System.out.println("x");
-                }
-                else {
-                    System.out.println(" ");
-                }
+        for (int i = 0; i < map.length; i++) {
+            for (int j = 0; j < map[i].length; j++) {
+                System.out.print(map[i][j]);
             }
             System.out.println();
         }
