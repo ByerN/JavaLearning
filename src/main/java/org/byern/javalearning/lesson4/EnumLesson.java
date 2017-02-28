@@ -1,4 +1,4 @@
-package org.byern.javalearning.lesson4;
+//package org.byern.javalearning.lesson4;
 
 /**
  * Created by ByerN on 26.02.2017.

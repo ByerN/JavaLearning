@@ -4,6 +4,10 @@
  * Created by ByerN on 21.02.2017.
  * Edited by Konrad
  */
+ 
+import java.util.Scanner; 
+import static java.lang.Math.*;
+ 
 public class Homework2 {
 
     /*
@@ -32,6 +36,32 @@ public class Homework2 {
      * 
      */
     public static void main(String[] args) {
+		double x1, y1, w1, h1, x2, y2, w2, h2;
+		Scanner input = new Scanner(System.in);
+		
+		System.out.println("Provide 1st rectangle's parameters");
+		System.out.print("x1: ");
+		x1 = input.nextInt();
+		System.out.print("y1: ");
+		y1 = input.nextInt();
+		System.out.print("w1: ");
+		w1 = input.nextInt();
+		System.out.print("h1: ");
+		h1 = input.nextInt();
+		System.out.println("rectangle1: ("+x1+", "+y1+"), w1 = "+w1+", h1 = "+h1);
+		System.out.println();
+		
+		System.out.println("Provide 2st rectangle's parameters");
+		System.out.print("x2: ");
+		x2 = input.nextInt();
+		System.out.print("y2: ");
+		y2 = input.nextInt();
+		System.out.print("w2: ");
+		w2 = input.nextInt();
+		System.out.print("h2: ");
+		h2 = input.nextInt();
+		System.out.println("rectangle2: ("+x2+", "+y2+"), w2 = "+w2+", h2 = "+h2);
+		System.out.println();
+		
     }
-
 }

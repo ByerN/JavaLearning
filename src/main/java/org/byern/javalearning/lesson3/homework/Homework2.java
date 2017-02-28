@@ -83,8 +83,7 @@ public class Homework2 {
 
             while (!doorOpen) {
                 //Render game level
-                System.out.println("-------------------------------------------------------------------------" +
-                        "--------------------------------------------------");
+                System.out.println("--------------------------------------------------------------------------------");
                 System.out.println("Level "+level+"\n");
                 for (int y = 0; y < map.length; y++) {
                     for (int x = 0; x < map[y].length; x++) {
@@ -100,6 +99,7 @@ public class Homework2 {
                     System.out.println();
                 }
 
+				System.out.println();
                 System.out.println("Where do you want to go? (w -> up, s -> down, a -> left, d -> right)");
                 char move = scanner.next().charAt(0);
 
