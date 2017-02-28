@@ -1,8 +1,6 @@
 package org.byern.javalearning.lesson4.homework;
 
-/**
- * Created by ByerN on 26.02.2017.
- */
+
 public class Homework2 {
 
     public static void main(String[] args) {
@@ -18,5 +16,32 @@ public class Homework2 {
          *
          * -non-positive numbers can be treated like 0
          */
+
+        int n = 4;
+        int resultSilnia = calculateFactorialUsingRecursion(n);
+        int resultLoop = calculateFactorialUsingLoop(n);
+
+        System.out.printf("Result for factorialis %d and result for loop is %d", resultSilnia, resultLoop);
+
+    }
+
+    public static int calculateFactorialUsingRecursion(int n) {
+        if (n < 1) {
+            return 1;
+        } else {
+            return n * calculateFactorialUsingRecursion(n - 1);
+        }
+    }
+
+    public static int calculateFactorialUsingLoop(int n) {
+        int silnia = 1;
+        for (int i = 1; i <= n; i++) {
+            silnia = silnia * i;
+        }
+        return silnia;
     }
 }
+
+
+
+
