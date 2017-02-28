@@ -22,6 +22,8 @@ public class IfElseIfElseLesson {
          *
          * (Generally control flow statements should be used along with blocks.)
          *
+         * Something
+         *
          * Expression will be evaluated only IF condition evaluates to "true".
          * Otherwise, block of code with expression will be omitted.
          */
