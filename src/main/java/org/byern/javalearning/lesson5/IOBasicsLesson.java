@@ -11,60 +11,60 @@ public class IOBasicsLesson {
     public static final String OUT_FILE = "data/lesson5/outText.txt";
 
     public static void main(String[] args) {
-        /*
-         * I/O - Input/Output (Operations on files)
-         *
-         * Basic operations on files are performed with usage of streams.
-         *
-         * Let's tak a look at java.io package.
-         *
-         * For each class used for reading file content to program (input) there
-         * is similar one for writing content to file (output).
-         *
-         * Stream related classes inputByteStream java.io usually uses decorator pattern.
-         *
-         *  Input:                  Output:                 Description:
-         *Bytes:
-         *  (InputStream)           (OutputStream)          Base classes for byte streams
-         *
-         *  FileInputStream         FileOutputStream        Reading/writing bytes from/to file
-         *  BufferedInputStream     BufferedOutputStream    Buffered reading/writing bytes
-         *
-         *Characters:
-         *  (Reader)                (Writer)                Base classes for character streams
-         *  FileReader              FileWriter              Reading/writing characters from/to file
-         *  InputStreamReader       InputStreamWriter       Reading/writing characters from/to stream (specifies charset)
-         *  BufferedReader          BufferedWriter          Buffered reader/writer
-         *
-         *Other:
-         *  DataInputStream         DataOutputStream        Reading/writing primitive data
-         *  ObjectInputStream       ObjectOutputStream      Reading/writing objects
-         *
-         *  To check other classes take a look at inheritance of base classes mentioned above.
-         *  These classes listed here are worth to mention (there are plenty of them).
-         *
-         *  Buffered* classes are used for performance. If stream is not buffered, every read/write call
-         *  makes java use native api to access the file. It's slow.
-         *  Buffered* classes reads some of the file content to the inputByteStream memory allocated structure
-         *  called "buffer" and makes most of operations on it inputByteStream memory.
-         *
-         *  .flush() method makes write changes to the file ad hoc.
-         *
-         * For more specific usage- find best suiting class and use it.
-         * e.g If you want to append to a file, maybe you want to use:
-         * FileWriter(String fileName, boolean append)
-         * and decorate it with BufferedWriter and PrintWriter?
-         *
-         * Something like this:
-         * new PrintWriter(new BufferedWriter(new FileWriter("MyFile", true)))
-         *
-         * PrintWriter has similar methods as System.out which is PrintStream btw.
-         *
-         *  **********IMPORTANT**********
-         *  Always close the stream. Why? Mainly because:
-         *  -closing streams makes automatic flush
-         *  -closing streams releases resources
-         */
+//        /*
+//         * I/O - Input/Output (Operations on files)
+//         *
+//         * Basic operations on files are performed with usage of streams.
+//         *
+//         * Let's tak a look at java.io package.
+//         *
+//         * For each class used for reading file content to program (input) there
+//         * is similar one for writing content to file (output).
+//         *
+//         * Stream related classes inputByteStream java.io usually uses decorator pattern.
+//         *
+//         *  Input:                  Output: - zapis do pliku            Description:
+//         *Bytes:
+//         *  (InputStream)           (OutputStream)          Base classes for byte streams
+//         *
+//         *  FileInputStream         FileOutputStream        Reading/writing bytes from/to file
+//         *  BufferedInputStream     BufferedOutputStream    Buffered reading/writing bytes
+//         *
+//         *Characters:
+//         *  (Reader)                (Writer)                Base classes for character streams
+//         *  FileReader              FileWriter              Reading/writing characters from/to file
+//         *  InputStreamReader       InputStreamWriter       Reading/writing characters from/to stream (specifies charset)
+//         *  BufferedReader          BufferedWriter          Buffered reader/writer
+//         *
+//         *Other:
+//         *  DataInputStream         DataOutputStream        Reading/writing primitive data - np int
+//         *  ObjectInputStream       ObjectOutputStream      Reading/writing objects
+//         *
+//         *  To check other classes take a look at inheritance of base classes mentioned above.
+//         *  These classes listed here are worth to mention (there are plenty of them).
+//         *
+//         *  Buffered* classes are used for performance. If stream is not buffered, every read/write call
+//         *  makes java use native api to access the file. It's slow.
+//         *  Buffered* classes reads some of the file content to the inputByteStream memory allocated structure
+//         *  called "buffer" and makes most of operations on it inputByteStream memory.
+//         *
+//         *  .flush() method makes write changes to the file ad hoc. -przepycha dane z bufora do kolejnego strumienia
+//         *
+//         * For more specific usage- find best suiting class and use it.
+//         * e.g If you want to append to a file, maybe you want to use:
+//         * FileWriter(String fileName, boolean append)
+//         * and decorate it with BufferedWriter and PrintWriter?
+//         *
+//         * Something like this: Decorator
+//         * new PrintWriter(new BufferedWriter(new FileWriter("MyFile", true)))
+//         *
+//         * PrintWriter has similar methods as System.out which is PrintStream btw.
+//         *
+//         *  **********IMPORTANT**********
+//         *  Always close the stream. Why? Mainly because:
+//         *  -closing streams makes automatic
+//         *  -closing streams releases resources zwalniamy zasoby, które używaliśmy
+//         */
 
         /*
          * Copy a file example (using byte not buffered streams):

@@ -6,7 +6,7 @@ package org.byern.javalearning.lesson5.homework;
 public class Homework2 {
 
     public static void main(String[] args) {
-        /*
+        /* mozna uzyc regexow
          * Validation:
          *
          * Create method:
