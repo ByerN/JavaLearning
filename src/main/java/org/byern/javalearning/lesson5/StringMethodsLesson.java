@@ -32,7 +32,7 @@ public class StringMethodsLesson {
         System.out.println(example1.startsWith("ab"));
         System.out.println(example1.isEmpty());
         System.out.println(example1.length());
-        System.out.println(example1.endsWith("cd"));
+        System.out.println(example1.endsWith("cd")); // repeated example =P
         System.out.println(example1.matches(".*[c]a"));// true if matches regex
         //https://docs.oracle.com/javase/tutorial/essential/regex/
 
