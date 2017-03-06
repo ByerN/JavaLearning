@@ -1,5 +1,6 @@
 package org.byern.javalearning.lesson6.lsystem.tree;
 
+import org.byern.javalearning.lesson6.lsystem.core.constant.RuleConstants;
 import org.byern.javalearning.lesson6.lsystem.core.dto.LSystemProperties;
 import org.byern.javalearning.lesson6.lsystem.core.dto.Line;
 import org.byern.javalearning.lesson6.lsystem.core.exception.RuleReadingException;
@@ -29,7 +30,8 @@ public class TreeMain {
             "LeviDragonRules",
             "SpiralRules"
     };
-    public static final String STARTING_WORD_FIELD_NAME = "startingWord";
+    public static final int STARTING_ANGLE = -90;
+
 
     public static void main(String[] args) throws RuleReadingException {
         Scanner scanner = new Scanner(System.in);
@@ -84,14 +86,16 @@ public class TreeMain {
                 RULE_FILE_PATH + ruleFileName
         );
 
-        String startingWord = lSystemProperties.getProperties().getProperty(STARTING_WORD_FIELD_NAME);
+        String startingWord = lSystemProperties.getProperties().getProperty(
+                RuleConstants.STARTING_WORD_FIELD_NAME
+        );
         String lSystemInput = lSystemProcessor.processLSystem(
                 startingWord != null ? startingWord : "",
                 lSystemProperties.getRules(),
                 iteration
         );
 
-        Line[] lines = generator.create(lSystemInput, -90, lSystemProperties.getProperties());
+        Line[] lines = generator.create(lSystemInput, STARTING_ANGLE, lSystemProperties.getProperties());
 
         LineUtils.scaleToSize(lines, width, height);
 

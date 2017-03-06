@@ -1,5 +1,7 @@
 package org.byern.javalearning.lesson6.lsystem.tree.service;
 
+import org.byern.javalearning.lesson6.lsystem.core.constant.RuleConstants;
+import org.byern.javalearning.lesson6.lsystem.core.dto.Frame;
 import org.byern.javalearning.lesson6.lsystem.core.dto.Line;
 import org.byern.javalearning.lesson6.lsystem.core.util.LineUtils;
 import org.byern.javalearning.lesson6.lsystem.tree.constant.RuleAction;
@@ -12,44 +14,6 @@ import java.util.Stack;
  */
 public class TreeGenerator {
 
-    public static final String TURN_ANGLE_NAME = "turnAngle";
-
-    private static class Frame {
-        private double x;
-        private double y;
-        private double angle;
-
-        public Frame(double x, double y, double angle) {
-            this.x = x;
-            this.y = y;
-            this.angle = angle;
-        }
-
-        public double getX() {
-            return x;
-        }
-
-        public void setX(double x) {
-            this.x = x;
-        }
-
-        public double getY() {
-            return y;
-        }
-
-        public void setY(double y) {
-            this.y = y;
-        }
-
-        public double getAngle() {
-            return angle;
-        }
-
-        public void setAngle(double angle) {
-            this.angle = angle;
-        }
-    }
-
     public Line[] create(String input,
                          int angle,
                          Properties properties) {
@@ -59,17 +23,11 @@ public class TreeGenerator {
     public Line[] create(String input,
                          int angle,
                          int lineLength,
-                         Properties properties) {
-        return create(input, angle, lineLength, 0.0, 0.0, properties);
-    }
-
-    public Line[] create(String input,
-                         int angle,
-                         int lineLength,
-                         double x, double y,
+                         double x,
+                         double y,
                          Properties properties) {
         Line[] result = new Line[0];
-        Stack<Frame> stack = new Stack();
+        Stack<Frame> stack = new Stack<>();
         stack.push(new Frame(x, y, angle));
         result = create(input, lineLength, stack, result, properties);
         return result;
@@ -127,7 +85,14 @@ public class TreeGenerator {
     }
 
     private double getTurnAngle(Properties properties) {
-        return Double.parseDouble(properties.getProperty(TURN_ANGLE_NAME));
+        double result = 0;
+        try {
+            result = properties.containsKey(RuleConstants.TURN_ANGLE_NAME) ?
+                    Double.parseDouble(properties.getProperty(RuleConstants.TURN_ANGLE_NAME)) : 0;
+        } catch (NumberFormatException e){
+            e.printStackTrace();
+        }
+        return result;
     }
 
 

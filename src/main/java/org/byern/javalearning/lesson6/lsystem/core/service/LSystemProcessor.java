@@ -38,8 +38,8 @@ public class LSystemProcessor {
 
     private String getTransformationBySymbol(String[][] rules, char symbol) {
         for (String[] rule : rules) {
-            if (symbol == rule[RuleConstants.RULE_SYMBOL_INDEX].charAt(0)) {
-                return rule[RuleConstants.RULE_TRANSFORMATION_INDEX];
+            if (symbol == rule[RuleConstants.KEY_INDEX].charAt(0)) {
+                return rule[RuleConstants.VALUE_INDEX];
             }
         }
         return null;
