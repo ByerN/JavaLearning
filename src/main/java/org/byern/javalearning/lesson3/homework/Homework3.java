@@ -10,6 +10,7 @@ public class Homework3 {
     public static final int VIEWPORT_X = 100;
     public static final int VIEWPORT_Y = 30;
     public static final double PROBE = 0.001;
+    public static final int radius = 5;
 
     public static void main(String[] args) {
          /*
@@ -70,6 +71,32 @@ public class Homework3 {
          * -Math.PI (constant)
          * -Random.nextInt(n)
          */
+
+        int thickness = 1;
+
+        for (int j = 0; j<VIEWPORT_Y+radius*2 + thickness;j++)
+        {
+            for (int i = 0; i<VIEWPORT_X+radius*2+thickness; i++)
+            {
+                if ( Math.abs(Math.pow(Math.pow(i-VIEWPORT_X,2) + Math.pow(j-VIEWPORT_Y,2),.5) - radius*2) < thickness)
+                {
+                    System.out.print("+");
+                }
+                else if(i==VIEWPORT_X&&j==VIEWPORT_Y){
+                    System.out.print("X");
+                }
+                else
+                {
+                    System.out.print(" ");
+                }
+                //System.out.print("\n");
+            }
+            System.out.print("\n");
+        }
+
+
     }
+
+
 
 }

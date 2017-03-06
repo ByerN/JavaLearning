@@ -26,19 +26,34 @@ public class Homework2 {
         Scanner scanner = new Scanner(System.in);
 
         //Game level:
-        int[][] map = {
-                {0, 1, 4, 1},
-                {0, 1, 0, 1},
-                {1, 1, 0, 1},
-                {3, 0, 2, 5},
+        int level = 0;
+        int[][][] map = {
+                {
+                        {0, 1, 4, 1},
+                        {0, 1, 0, 1},
+                        {1, 1, 0, 1},
+                        {3, 0, 2, 5},
+                },
+                {
+                        {0, 1, 4, 1},
+                        {0, 0, 0, 1},
+                        {0, 1, 0, 0},
+                        {3, 0, 5, 2},
+                },
+                {
+                        {2, 1, 4, 1},
+                        {0, 0, 0, 1},
+                        {0, 1, 0, 1},
+                        {3, 0, 0, 5},
+                }
         };
 
         //Search and set player starting point
         int playerX = 0;
         int playerY = 0;
-        for (int y = 0; y < map.length; y++) {
-            for (int x = 0; x < map[y].length; x++) {
-                if (map[y][x] == 2) {
+        for (int y = 0; y < map[level].length; y++) {
+            for (int x = 0; x < map[level][y].length; x++) {
+                if (map[level][y][x] == 2) {
                     playerX = x;
                     playerY = y;
                     break;
@@ -46,21 +61,23 @@ public class Homework2 {
             }
         }
 
+
         boolean keyCollected = false;
         boolean doorOpen = false;
 
 
-        while (!doorOpen) {
+        while (!doorOpen||level<map.length){
+
             //Render game level
-            for (int y = 0; y < map.length; y++) {
-                for (int x = 0; x < map[y].length; x++) {
+            for (int y = 0; y < map[level].length; y++) {
+                for (int x = 0; x < map[level][y].length; x++) {
                     if (x == playerX && y == playerY) {
-                        System.out.print("@"); //Player
-                    } else if (map[y][x] == 2 || (keyCollected && map[y][x] == 3)) {
+                        System.out.print("ツ"); //Player
+                    } else if (map[level][y][x] == 2 || (keyCollected && map[level][y][x] == 3)) {
                         //player starting position and collected key should not be visible
                         System.out.print(0);
                     } else {
-                        System.out.print(map[y][x]);
+                        System.out.print(map[level][y][x]);
                     }
                 }
                 System.out.println();
@@ -90,13 +107,13 @@ public class Homework2 {
 
             //check if next move is out of array bound
             if (nextY < 0 ||
-                    nextY >= map.length ||
+                    nextY >= map[level].length ||
                     nextX < 0 ||
-                    nextX >= map[nextY].length) {
+                    nextX >= map[level][nextY].length) {
                 System.out.println("Cannot pass here!");
                 resetMove = true;
             } else {
-                int nextField = map[nextY][nextX];
+                int nextField = map[level][nextY][nextX];
 
                 if (nextField == 1) {//wall
                     System.out.println("Cannot pass here!");
@@ -106,7 +123,7 @@ public class Homework2 {
                 } else if (nextField == 3) {//key
                     if (!keyCollected) {//collect if not collected
                         keyCollected = true;
-                        System.out.println("Collected key!");
+                        System.out.println("Key is collected!");
                     } else {//if collected -> acts like floor
                         System.out.println("You passed through.");
                     }
@@ -114,9 +131,35 @@ public class Homework2 {
                     if (!keyCollected) {//locked if key is not collected
                         System.out.println("It's locked!");
                         resetMove = true;
-                    } else {//opens if key is collected
-                        doorOpen = true;
-                        System.out.println("Opened. You won!");
+                    } else {
+                        //opens if key is collected and current level is not the last
+                        if (level+1<map.length){
+                            doorOpen = true;
+                            System.out.println("Door opened. You finished "+(level+1)+" level and you are moving to next "+(level+2)+" level!");
+                            keyCollected = false;
+                            doorOpen = false;
+                            level++;
+
+                            //Search and set player starting point
+                            playerX = 0;
+                            playerY = 0;
+                            for (int y = 0; y < map[level].length; y++) {
+                                for (int x = 0; x < map[level][y].length; x++) {
+                                    if (map[level][y][x] == 2) {
+                                        playerX = x;
+                                        playerY = y;
+                                        break;
+                                    }
+                                }
+                            }
+                            nextX=playerX;
+                            nextY=playerY;
+                        }
+                        else {//opens if key is collected and current level is the last
+                            doorOpen = true;
+                            level++;
+                            System.out.println("Door opened. You finished the last "+(level)+" level and you won the game!");
+                        }
                     }
                 } else if (nextField == 5) {//trap
                     System.out.println("It's a trap! You died...");
@@ -129,6 +172,7 @@ public class Homework2 {
                 playerY = nextY;
             }
         }
+
     }
 
 }

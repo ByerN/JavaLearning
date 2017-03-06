@@ -1,5 +1,9 @@
 package org.byern.javalearning.lesson3.homework;
 
+import java.util.Random;
+
+import static org.byern.javalearning.lesson3.ArraysLesson.n;
+
 /**
  * Created by ByerN on 22.02.2017.
  */
@@ -54,6 +58,7 @@ public class Homework4 {
          * -Math.pow
          * -Random.nextInt(n)
          */
+
 
     }
 
