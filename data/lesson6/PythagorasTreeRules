@@ -1,0 +1,2 @@
+rules=F:FF,f:F[-f]+f
+properties=turnAngle:45,startingWord:f
