@@ -1,4 +1,4 @@
-//package org.byern.javalearning.lesson3.homework;
+package org.byern.javalearning.lesson3.homework;
 
 import java.util.Scanner;
 
