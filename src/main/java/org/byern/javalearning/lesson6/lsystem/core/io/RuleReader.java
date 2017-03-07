@@ -35,8 +35,8 @@ public class RuleReader {
 
         try (BufferedReader fileReader = new BufferedReader(new FileReader(filePath))) {
             String line;
-            while ((line = fileReader.readLine()) != null) {
-                String[] fields = line.split(FIELD_DELIMITER);
+            while ((line = fileReader.readLine()) != null) { //czytamy az readLine zwroci null
+                String[] fields = line.split(FIELD_DELIMITER); // dzielimy po jakims znaku/ ciagu znakow jednego Stringa na tablice Stingów
                 if (fields.length > 1) {
                     if (RULES_FIELD_NAME.equals(fields[0])) {
                         rulesResult = readRules(rulesResult, fields[1]);
@@ -75,7 +75,7 @@ public class RuleReader {
     }
 
     private String[][] addRuleToArray(String[][] result, String[] rule) {
-        result = Arrays.copyOf(result, result.length + 1);
+        result = Arrays.copyOf(result, result.length + 1); // kopiuje tablice z okreslonym rozmiarem; jesli rozmiar jest wiekszy to wypelnia nullem dla Stringow
         result[result.length - 1] = rule;
         return result;
     }
