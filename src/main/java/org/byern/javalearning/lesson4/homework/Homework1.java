@@ -1,4 +1,4 @@
-//package org.byern.javalearning.lesson4.homework;
+package org.byern.javalearning.lesson4.homework;
 
 /**
  * Created by ByerN on 26.02.2017.
@@ -40,9 +40,18 @@ public class Homework1 {
 		System.out.println("Fibonacci number using loop: "+result);
 	}
 	
-	public static void calculateFibonacciNumberUsingRecursion(int n) {
-		int result = 0;
-		System.out.println("Fibonacci number using recursion: "+result);
+	public static int calculateFibonacciNumberUsingRecursion(int n) {
+		int result;
+
+		if (n == 0) result = 0;
+		else if (n == 1) result = 1;
+		else {
+            int resultY = calculateFibonacciNumberUsingRecursion(n-2);
+            int resultX = calculateFibonacciNumberUsingRecursion(n-1);
+            result = resultX + resultY;
+        }
+
+		return result;
 	}
 
     public static void main(String[] args) {
@@ -50,8 +59,8 @@ public class Homework1 {
         System.out.print("Provide n: ");
         int n = input.nextInt();
 		if (n < 0) n = 0;
-        
-        calculateFibonacciNumberUsingRecursion(n);
+
+        System.out.println("Fibonacci number using recursion: "+calculateFibonacciNumberUsingRecursion(n));
         calculateFibonacciNumberUsingLoop(n); 
     }
 }

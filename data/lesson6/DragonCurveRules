@@ -1,0 +1,2 @@
+rules=X:X+YF+,Y:-FX-Y
+properties=turnAngle:90,startingWord:FX

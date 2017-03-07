@@ -1,4 +1,4 @@
-//package org.byern.javalearning.lesson3.homework;
+package org.byern.javalearning.lesson3.homework;
 
 /**
  * Created by ByerN on 22.02.2017.
