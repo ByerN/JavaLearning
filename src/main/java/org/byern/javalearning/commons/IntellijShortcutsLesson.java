@@ -6,7 +6,7 @@ package org.byern.javalearning.commons;
 public class IntellijShortcutsLesson {
 
     /*
-     *  CTRL + SPACE -> auto-completion
+    *  CTRL + SPACE -> auto-completion
      *  CTRL + ENTER -> auto-solve
      *
      *  SHIFT + TAB -> move line tab back

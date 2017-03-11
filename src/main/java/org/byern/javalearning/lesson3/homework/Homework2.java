@@ -26,25 +26,25 @@ public class Homework2 {
         Scanner scanner = new Scanner(System.in);
         //Game level:
 
-        int[][] map1 = {
+        int[][][] maps = {{
                 {0, 1, 4, 1},
                 {0, 1, 0, 1},
                 {1, 1, 0, 1},
                 {3, 0, 2, 5},
-        };
-        int[][] map2 = {
+        },
+        {
                 {0, 1, 4, 1},
                 {0, 1, 0, 1},
                 {1, 1, 0, 1},
                 {3, 0, 2, 5},
-        };
-        int[][] map3 = {
+        },
+                {
                 {0, 1, 4, 1},
                 {0, 1, 0, 1},
                 {1, 1, 0, 1},
                 {3, 0, 2, 5},
-        };
-        int[][][] mapy = {map1, map2, map3};
+        }};
+
         int[][] map;
 
 
@@ -53,7 +53,7 @@ public class Homework2 {
         int playerY = 0;
 
         for (int level =0; level<3; level++){
-            map = mapy[level];
+            map = maps[level];
 
 
         for (int y = 0; y < map.length; y++) {
