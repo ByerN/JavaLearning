@@ -6,7 +6,6 @@ package org.byern.javalearning.lesson6.homework.solution;
 public class Homework2 {
 
 
-
     public static void main(String[] args) {
         /**
          * Create a method for checking if provided
@@ -23,5 +22,14 @@ public class Homework2 {
          *
          * * case-sensitive
          */
+    }
+
+    public static boolean isPalindrome(String value) {
+        for (int n = 0; n < value.length() / 2; n++) {
+            if (value.charAt(n) != value.charAt(value.length() - 1 - n)) {
+                return false;
+            }
+        }
+        return true;
     }
 }
