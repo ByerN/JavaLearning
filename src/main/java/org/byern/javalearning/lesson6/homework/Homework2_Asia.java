@@ -8,7 +8,10 @@ public class Homework2_Asia {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Provide world: ");String x = scanner.nextLine();
+        System.out.println("Provide world: ");
+        String element = scanner.nextLine();
+
+        checkString(element);
 
     }
 
