@@ -19,6 +19,8 @@ public class PolymorphismMain {
      * -Method overriding - mechanism of changing/implementing behavior of methods inherited
      *      from superclass or interface. It makes object to act different according to type.
      * -Method overloading - mechanism of specifying "same" method to resolve different type.
+     * -Generics (later)
+     * -other things that fits this paradigm (e.g. coercion -> type casting)
      *
      * Overriding is dynamic. Resolves in runtime time (dynamic binding).
      * Overloading is static. Resolves in compile time (static binding).
