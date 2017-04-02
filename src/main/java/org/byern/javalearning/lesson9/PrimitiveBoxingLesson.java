@@ -57,7 +57,32 @@ public class PrimitiveBoxingLesson {
         System.out.println("Number : " + Integer.valueOf(1).toString());//same as above but explicit
 
         System.out.println(new Integer(2) == new Integer(2));//false
-        System.out.println(new Integer(2).equals(2));//true
+        System.out.println(new Integer(2).equals(new Integer(2)));//true
+
+        /*
+         * Primitive caching related misleading issue:
+         */
+        Integer a1 = 2;
+        Integer a2 = 2;
+        System.out.println(a1 == a2);//true
+        System.out.println(a1.equals(a2));//true
+
+        Integer c1 = new Integer(2);
+        Integer c2 = new Integer(2);
+        System.out.println(c1 == c2);//false
+        System.out.println(c1.equals(c2));//true
+
+        Integer b1 = 1370000;
+        Integer b2 = 1370000;
+        System.out.println(b1 == b2);//false
+        System.out.println(b1.equals(b2));//true
+
+        /*
+         * Comparing primitives ans it's wrappers:
+         * Wrapper is unboxed to compare with primitive
+         */
+        System.out.println(b1 == 1370000);//true
+        System.out.println(1370000 == b1);//true
     }
 
     /*
