@@ -2,6 +2,7 @@ package org.byern.javalearning.lesson3.homework;
 
 /**
  * Created by ByerN on 22.02.2017.
+ * Edited by Konrad
  */
  
 import java.util.Scanner;  
@@ -22,7 +23,7 @@ public class Homework1 {
         
         String[] array = {"   x   ", "  xxx  ", " xxxxx ", "  xxx  ", "  xxx  ", "  xxx  ", "  xxx  ", "  xxx  ", "  xxx  ", "  xxx  "};
 		for (int i = 0; i < n; i++) {
-			for (int j = 0; j < 10; j++) {
+			for (int j = 0; j < array.length; j++) {
 				System.out.println(array[(j % 10)]);
 				Thread.sleep(100);
 			}

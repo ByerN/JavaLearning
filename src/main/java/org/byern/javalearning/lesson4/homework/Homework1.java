@@ -25,9 +25,11 @@ public class Homework1 {
 	public static void calculateFibonacciNumberUsingLoop(int n) {
 		int result = 0;
 		
-		if (n == 0) result = 0;
-		else if (n == 1) result = 1;
-		else {
+		if (n == 0) {
+			result = 0;
+		} else if (n == 1) {
+			result = 1;
+		} else {
 			int resultY = 0;
 			int resultX = 1;
 			for (int i = 2; i <= n; i++) {
@@ -43,9 +45,11 @@ public class Homework1 {
 	public static int calculateFibonacciNumberUsingRecursion(int n) {
 		int result;
 
-		if (n == 0) result = 0;
-		else if (n == 1) result = 1;
-		else {
+		if (n == 0) {
+			result = 0;
+		} else if (n == 1) {
+			result = 1;
+		} else {
             int resultY = calculateFibonacciNumberUsingRecursion(n-2);
             int resultX = calculateFibonacciNumberUsingRecursion(n-1);
             result = resultX + resultY;
@@ -63,4 +67,5 @@ public class Homework1 {
         System.out.println("Fibonacci number using recursion: "+calculateFibonacciNumberUsingRecursion(n));
         calculateFibonacciNumberUsingLoop(n); 
     }
+
 }

@@ -59,30 +59,19 @@ public class Homework1 {
 		System.out.println("circle2: ("+x2+", "+y2+"), r2 = "+r2);
 		System.out.println();
 		
-		double distance = (sqrt(pow(abs(x2-x1),2)+pow(abs(y2-y1),2)));
-		double sumR1R2 = (r1+r2);
-		boolean collision = false;
-		boolean inclusion = false;
-		
+		double distance = sqrt(pow(abs(x2-x1),2)+pow(abs(y2-y1),2));
+		double sumR1R2 = r1+r2;
+
 		if (distance<=sumR1R2) {
-			collision = true;
-		}
-		
-		if ((r1>=r2) && ((distance+r2)<=r1)) {
-			inclusion = true;
-			collision = true;
-		} else if ((r2>=r1) && ((distance+r1)<=r2)) {
-			inclusion = true;
-			collision = true;
-		}
-		
-		if (collision && inclusion) {
-			System.out.println("Collision detected! Collision is inclusive!");
-		} else if (collision) {
-			System.out.println("Collision detected! Collision is exclusive.");
+			System.out.print("Collision detected! ");
+			if ((r1>=r2 && (distance+r2)<=r1) || (r2>=r1 && (distance+r1)<=r2)) {
+				System.out.println("Collision is inclusive!");
+			} else {
+				System.out.println("Collision is exclusive!");
+			}
 		} else {
 			System.out.println("Collision not detected!");
 		}
-    }
 
+    }
 }

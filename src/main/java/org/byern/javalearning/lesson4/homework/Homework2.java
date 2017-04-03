@@ -25,8 +25,8 @@ public class Homework2 {
 	public static void calculateFactorialUsingLoop(int n) {
 	    long result = 1;
 
-	    if (!((n == 0) || (n == 1))) {
-	        for (int i = 2; i <= n; i++) {
+	    if (n > 1) {
+	        for (int i = n; i > 0 ; i--) {
 	            result = result * i;
             }
         }
@@ -37,7 +37,7 @@ public class Homework2 {
     public static long calculateFactorialUsingRecursion(int n) {
 	    long result = 1;
 
-        if (!((n == 0) || (n == 1))) {
+        if (n > 1) {
             result = n * calculateFactorialUsingRecursion(n-1);
         }
 
