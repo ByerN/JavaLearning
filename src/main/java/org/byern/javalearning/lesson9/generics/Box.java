@@ -43,6 +43,8 @@ public class Box<T> {
         String itemFromRawBox = (String) rawBox.getItem(); //getItem returns Object. Has to be casted
 
         Box<String> stringBox = new Box<String>("stringItem");
+        Box<Integer> integerBox = new Box<>(2);
+        integerBox.setItem(12);
         /*
         * In "stringBox", "String" type has been passed as argument.
         * For this instance, all T has been swapped to String.
