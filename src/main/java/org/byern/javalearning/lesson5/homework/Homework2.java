@@ -57,7 +57,6 @@ public class Homework2 {
 
         String firstName, lastName, dateOfBirth, weight, height;
 
-        String bufor;
         Scanner scanner = new Scanner(System.in);
         System.out.println("First name");
         firstName = scanner.nextLine();
@@ -159,13 +158,13 @@ public class Homework2 {
 
 
     private static boolean validate_weight(String weight) {
-        if ((weight.matches("[\\d]+[,]?[\\d]+"))
-
-                ) {
+        if ((weight.matches(("[\\d]+[,]?[\\d]+")) || weight.matches("[\\d]+[.]?[\\d]+")))
+                 {
             return true;
         }
         return false;
     }
+
 
     private static boolean validate_name(String bufor) {
         if ((bufor.matches("[a-zA-Z]*"))) {
