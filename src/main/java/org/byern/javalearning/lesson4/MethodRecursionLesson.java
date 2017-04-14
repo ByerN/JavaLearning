@@ -9,6 +9,8 @@ public class MethodRecursionLesson {
         /*
          * Recursive method - method that call itself within it's body
          */
+        // REKURENCJA - metoda wywołuje sama siebie!
+
         System.out.println("Recursion example 1:");
         System.out.println(recursionExample1(0, 0));//0
         System.out.println(recursionExample1(0, 1));//2

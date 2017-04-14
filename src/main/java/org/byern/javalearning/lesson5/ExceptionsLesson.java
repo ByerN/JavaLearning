@@ -28,8 +28,9 @@ public class ExceptionsLesson {
          *  -------------------------------------
          * |                                    |
          * -----                                ---------
-         * Error                                Exception
-         * -----                                ---------
+         * Error                                Exception - mozemy tworzyc nowe wyjatki dziedziczac po tym
+         * -klasa, której nie chcemy łapać----  ---------
+         *
          *                                      |       | Other checked exceptions
          *                        ----------------
          *                        RuntimeException
@@ -37,15 +38,15 @@ public class ExceptionsLesson {
          *                        other runtime exceptions
          *
          * We can try to catch an exception and finally perform some cleanup if our application
-         * cannot get up after failure.
+         * cannot get up after failure. - mozemy zlapac wyjatek i po nim posptzatac - finaly
          *
          * It comes with an try-catch construction:
          *
          * Construction:
-         * try{
+         * try{ - próbujemy coś zrobić i złapać wyjątek jeśli coś złego się stanie w tym bloku; łapiemy tu wyjątki
          *      //do some code that can throw exception
-         * }catch(ExceptionType exceptionVariable){
-         *      //do something if bad thing happens
+         * }catch(ExceptionType exceptionVariable){ - łapanie wyjątku
+         *      //do something if bad thing happens - piszemy jak chcemy obsłużyć wyjątek
          * }
          *
          * ExceptionType -> implements Throwable (extends Exception or RuntimeException)
@@ -129,7 +130,7 @@ public class ExceptionsLesson {
      */
     public static void testException() {
         try {
-            String string = null;
+            String string = null; // obiekt na nic nie wskazuje, nie wskazuje na zaden obszar pamięci - jest niczym
             string.toString();
         } catch (RuntimeException e) {
             System.out.println("In catch block RuntimeException");
@@ -164,7 +165,8 @@ public class ExceptionsLesson {
         try {
             String string = null;
             string.toString();
-        } catch (NullPointerException | IllegalArgumentException e) {
+        } catch (NullPointerException | IllegalArgumentException e) { // obslugujemy dwa wyjatki za pomoca "pałki" |
+//            IllegalArgumentException - leci np, gdy nie taki argument do metody podalismy
             System.out.println("In catch block Exception");
             e.printStackTrace();
         } finally {
@@ -210,7 +212,7 @@ public class ExceptionsLesson {
     if we don't explicitly tell that method throws checked exception or
     try to catch it inside the method -> it's compilation error
     */
-    public static void testCheckedExceptionThrower() throws InterruptedException {
+    public static void testCheckedExceptionThrower() throws InterruptedException { // wyjatek zostaje przezucony wyzej
         Thread.sleep(10);
     }
 
@@ -242,7 +244,7 @@ public class ExceptionsLesson {
      *
      * It's used for automatic close the resources (usually it's when we handle a file or networking)
      *
-     * Works only for classes implementing java.lang.AutoCloseable
+     * Works only for classes implementing java.lang.AutoCloseable - do obsługi plików, sieci
      *
      * -Resources are closed before catch and finally
      * -Exceptions thrown when closing resource are suppressed
@@ -251,6 +253,7 @@ public class ExceptionsLesson {
     public static void testTryWithResource() throws IOException {
         //create resource that will be cleaned after finishing try catch block.
         //multiple resources can be provided by separating it with ";"
+        //w () po try - deklarujemy zmienne, które zostaną na koniec zamknięte
         try (FileReader reader = new FileReader("something")) {
 
         } catch (IOException e) {
