@@ -42,5 +42,7 @@ public class NestedClassLesson {
          */
         //NestedClassLesson.NestedClass nestedClassObject = new NestedClassLesson.NestedClass();
 
+        NestedClassLesson nestedClassLesson = new NestedClassLesson();
+        NestedClassLesson.NestedClass nestedClass = nestedClassLesson.new NestedClass();
     }
 }

@@ -26,9 +26,21 @@ public class AnonymousClassLesson {
 
         };
 
-        new SomeAbstractClass(){
+        SomeAbstractClass someAbstractClass = new SomeAbstractClass(){
+
+            int a = 2;
 
         };
+
+        SomeAbstractClass someAbstractClass2 = new SomeAbstractClass(){
+
+            int b = 2;
+
+            public void hello(){
+                System.out.println();
+            }
+        };
+        someAbstractClass.toString();
     }
 
 }
