@@ -5,20 +5,16 @@ package org.byern.javalearning.lesson10.homework;
  */
 public class Homework0 {
 
-
     String firstName;
     String lastName;
     Integer age;
 
-
-    public static void main(String[] args) {
-        Homework0 hm = new Homework0();
-        hm.setFirstName("Jan");
-        hm.setLastName("Pan");
-        System.out.println(hm.hashCode());
-
-
+    public Homework0 (String firstName, String lastName, Integer age) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.age = age;
     }
+
 
     public String getFirstName() {
         return firstName;
@@ -44,6 +40,12 @@ public class Homework0 {
         this.age = age;
     }
 
+
+    public String toString(){
+
+
+        return ""+this.firstName+" "+this.lastName+" "+this.age;
+    }
 
     @Override
     public boolean equals(Object obj) {
