@@ -6,6 +6,9 @@
     <packaging>pom</packaging>
     <modules>
         <module>medium-level</module>
+        <module>mavenlesson</module>
+        <module>maveninheritancelesson</module>
+        <module>myplugin</module>
     </modules>
 
     <properties>
