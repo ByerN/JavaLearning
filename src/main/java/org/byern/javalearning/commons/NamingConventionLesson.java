@@ -16,7 +16,7 @@ public class NamingConventionLesson {
      * Constants naming -> UPPER_SNAKE_CASE
      *
      * Try to use only alphanumeric characters (without numbers if it's not needed)
-     * Do not use '$', '_'(this one only in constants as separator) in names (there are some excuses)
+     * Do not use '$', '_'(this one only in constant as separator) in names (there are some excuses)
      */
     public static final int CONSTANT_VALUE = 1;
 

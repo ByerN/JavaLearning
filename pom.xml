@@ -10,6 +10,13 @@
         <module>maveninheritancelesson</module>
         <module>myplugin</module>
     </modules>
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.16.12</version>
+        </dependency>
+    </dependencies>
 
     <properties>
         <maven.compiler.source>1.7</maven.compiler.source>
@@ -18,6 +25,5 @@
     <groupId>com.byern.javalearning</groupId>
     <artifactId>java-learning</artifactId>
     <version>1.0-SNAPSHOT</version>
-
 
 </project>

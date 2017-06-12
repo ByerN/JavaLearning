@@ -35,7 +35,7 @@ public class EncapsulationMain {
      * There are some rules when defining access level and the most important are:
      * -Use the most restrictive access level that makes sense for a particular member.
      *      Use private unless you have a good reason not to.
-     * -Avoid public fields except for constants.
+     * -Avoid public fields except for constant.
      * -Avoid no modifier unless you know what are you doing. Package-moving based refactoring
      *      can break access.
      *
