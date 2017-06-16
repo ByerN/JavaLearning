@@ -51,7 +51,7 @@ public class EnumLesson {
 
     public static void main(String[] args) {
         /*
-         * "enum" is a special data type that represents a fixed set of constants.
+         * "enum" is a special data type that represents a fixed set of constant.
          *
          * Simple construction:
          *
@@ -106,7 +106,7 @@ public class EnumLesson {
         System.out.println("DayComplex.values()[0]= " + allDays[0]);//MONDAY
 
         /*
-         * Iterate through enum constants:
+         * Iterate through enum constant:
          */
         System.out.println("Enum example 3 (iteration):");
         for (DayComplex day : DayComplex.values()) {

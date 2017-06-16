@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <!--http://www.codetab.org/apache-maven-tutorial/-->
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.byern.javalearning</groupId>
+    <artifactId>maven-lesson</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.16.12</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.byern.javalearning</groupId>
+                <artifactId>my-plugin</artifactId>
+                <version>1.0-SNAPSHOT</version>
+
+                <!-- https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html -->
+                <executions>
+                    <execution>
+                        <id>1</id>
+                        <phase>clean</phase>
+                        <goals>
+                            <goal>cleanGoal</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>2</id>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>myGoal</goal>
+                        </goals>
+                    </execution>
+
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>
