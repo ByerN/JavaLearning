@@ -8,19 +8,16 @@ import java.util.List;
  */
 
 
-public class Human implements Life {
+public abstract class Human implements Life {
 
-    public enum backpack_Elements {BONE, MAP};
+    public enum backpackElements {BONE, MAP}
+
+    private List backpack = new ArrayList<backpackElements>();
 
     Human() {
-
-        List backpack = new ArrayList<backpack_Elements>();
-
-
+        this.backpack = backpack;
     }
 
-
-    void fightBeast(){
-
+    void fightBeast() {
     }
 }

@@ -37,10 +37,8 @@ public class Homework1 {
      */
     public static void main(String[] args) {
 
-        float x1=0,y1=0,r1=0;
-        float x2=0,y2=0,r2=0;
-        double distOfCircleCentres=0;
-
+        float x1 = 0, y1 = 0, r1 = 0;
+        float x2 = 0, y2 = 0, r2 = 0;
 
 
         Scanner scanner = new Scanner(System.in);
@@ -61,12 +59,11 @@ public class Homework1 {
         System.out.print("r2:");
         r2 = Float.parseFloat(scanner.next());
 
-        distOfCircleCentres = Math.sqrt((x2-x1)*(x2-x1)+(y2-y1)*(y2-y1));
+        double distOfCircleCentres = Math.sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
 
-        if (distOfCircleCentres<r1+r2){
+        if (distOfCircleCentres < r1 + r2) {
             System.out.println("Colision detected");
-        }
-        else{
+        } else {
             System.out.println("Colision not detected");
         }
     }

@@ -29,7 +29,7 @@ public class LoopLesson {
 
         System.out.println("While loop with counter example:");
         int counter = 0;
-        while(counter < 10){
+        while (counter < 10) {
             System.out.println("Counter is: " + counter);
             counter++;
         }
@@ -66,7 +66,7 @@ public class LoopLesson {
         }
         */
         boolean conditionA = false;
-        while (conditionA){
+        while (conditionA) {
             System.out.println("I'll be never executed!");
         }
 
@@ -114,18 +114,18 @@ public class LoopLesson {
          */
 
         System.out.println("For loop with counter example 1:");
-        for(int n = 0; n< 10; n++){
+        for (int n = 0; n < 10; n++) {
             System.out.println("Counter is: " + n);
         }
 
         System.out.println("For loop with counter example 2 (multiple loop variables):");
-        for(int n = 2, m = 4; m%n!=3; n+=1, m+=5){ //less common used. Hard to read.
+        for (int n = 2, m = 4; m % n != 3; n += 1, m += 5) { //less common used. Hard to read.
             System.out.println("Counter is: " + n);
         }
 
         System.out.println("Nesting loops example:");
-        for(int n = 0; n < 10; n++){
-            for(int m = 0; m < 10; m++) {
+        for (int n = 0; n < 10; n++) {
+            for (int m = 0; m < 10; m++) {
                 System.out.println("n: " + n + ", m: " + m);
             }
         }
@@ -145,17 +145,17 @@ public class LoopLesson {
 
         System.out.println("For each loop example:");
         int[] intArray = {0, 2, 3, 8};
-        for(int number : intArray){
+        for (int number : intArray) {
             System.out.println("Number: " + number);
         }
 
-        String[] strzalka = {"  x  "," xxx ","xxxxx"," xxx ", " xxx "," xxx "," xxx "," xxx "," xxx ","xxxxx"};
+        String[] strzalka = {"  x  ", " xxx ", "xxxxx", " xxx ", " xxx ", " xxx ", " xxx ", " xxx ", " xxx ", "xxxxx"};
 
-        for(int i=0;i<1000;i++){
-            for (int n = 0; n<10;n++){
+        for (int i = 0; i < 1000; i++) {
+            for (int n = 0; n < 10; n++) {
                 System.out.println(strzalka[n]);
+                Thread.sleep(300);
             }
-Thread.sleep(300);
 
         }
 

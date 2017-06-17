@@ -8,11 +8,10 @@ public class CommentsLesson {
     /**
      * This is JavaDoc supported format of comment.
      * If you use this pattern, JavaDoc will be able to create a documentation.
-     *
+     * <p>
      * If you want to generate javaDoc go to Tools/GenerateJavaDoc (Intellij 2016.2.5)
      *
      * @param args this is description of args.
-     *
      */
     public static void main(String[] args) {
         //This is one line comment.

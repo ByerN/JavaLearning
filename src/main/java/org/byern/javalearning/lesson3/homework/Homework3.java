@@ -73,34 +73,34 @@ public class Homework3 {
          * -Math.PI (constant)
          * -Random.nextInt(n)
          */
-    int x_i=0,y_i=0,r=0;
-    Random random = new Random();
+        int xI = 0, yI = 0, r = 0;
+        Random random = new Random();
 
-    x_i = random.nextInt(VIEWPORT_X);
-    y_i = random.nextInt(VIEWPORT_Y);
-    r = random.nextInt(VIEWPORT_X);
-    int x_p=0, y_p=0;
-    char[][] screen_ch = new char[VIEWPORT_X][VIEWPORT_Y];
-    screen_ch[x_i][y_i]='x'; //circle centre
+        xI = random.nextInt(VIEWPORT_X);
+        yI = random.nextInt(VIEWPORT_Y);
+        r = random.nextInt(VIEWPORT_X);
+        int xP = 0, yP = 0;
+        char[][] screen_ch = new char[VIEWPORT_X][VIEWPORT_Y];
+        screen_ch[xI][yI] = 'x'; //circle centre
         //math relation
-        //x = r cos(t) + x_i
-        //y = r sin(t) + y_i
+        //x = r cos(t) + xI
+        //y = r sin(t) + yI
         //filling the screen matrix
-        for (int t=0;t<360;t++){
-        x_p = x_i + (int) (r* Math.cos(t));
-        y_p = y_i + (int) (r* Math.sin(t));
-        if ((x_p<VIEWPORT_X) && (y_p<VIEWPORT_Y) &&(x_p>0) && (y_p>0)) {
-            screen_ch[x_p][y_p]='+';
+        for (int t = 0; t < 360; t++) {
+            xP = xI + (int) (r * Math.cos(t));
+            yP = yI + (int) (r * Math.sin(t));
+            if ((xP < VIEWPORT_X) && (yP < VIEWPORT_Y) && (xP > 0) && (yP > 0)) {
+                screen_ch[xP][yP] = '+';
             }
         }
 
 //drawing
-    for (int x=0;x<VIEWPORT_X;x++){
-        for (int y=0; y<VIEWPORT_Y; y++){
-            System.out.print(screen_ch[x][y]);
+        for (int x = 0; x < VIEWPORT_X; x++) {
+            for (int y = 0; y < VIEWPORT_Y; y++) {
+                System.out.print(screen_ch[x][y]);
+            }
+            System.out.println();
         }
-        System.out.println();
-    }
     }
 
 }

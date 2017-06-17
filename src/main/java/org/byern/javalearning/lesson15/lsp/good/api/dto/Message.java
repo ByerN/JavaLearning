@@ -14,7 +14,7 @@ public abstract class Message implements Translatable{
     private String to;
 
     public Message(String body, String from, String to) {
-        this.body = new TranslatableItem(body);
+ //       this.body = new TranslatableItem(body);
         this.from = from;
         this.to = to;
     }

@@ -5,9 +5,9 @@ package org.byern.javalearning.lesson10.homework;
  */
 public class Homework0 {
 
-    String firstName;
-    String lastName;
-    Integer age;
+    private String firstName;
+    private String lastName;
+    private Integer age;
 
     public Homework0 (String firstName, String lastName, Integer age) {
     this.firstName = firstName;
@@ -71,7 +71,7 @@ public class Homework0 {
         result = somePrime*result;
         result = somePrime*result + sum(this.getLastName());
         result = somePrime*result + (this.getAge()==null ? 1: this.getAge());
-        result = result + + sum(this.getFirstName());
+        result = result + sum(this.getFirstName());
 
 
         return result;
@@ -80,6 +80,7 @@ public class Homework0 {
     private int sum(String string) {
         int sum = 0;
         int somePrime2 = 31;
+        
         if (string.equals(null)) {
             sum = somePrime2;
         }

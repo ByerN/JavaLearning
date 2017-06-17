@@ -19,16 +19,20 @@ public class Homework1 {
         Homework0 hm5 = new Homework0("Jan",null,13);
         Homework0 hm6 = new Homework0(null,"Pan",13);
         Homework0 hm7 = new Homework0("Jan","Pan",null);
+        Homework0 hm8 = new Homework0(null,"Par",13);
+
 
         List<Homework0> nieposortowanaLista = new ArrayList<Homework0>();
         nieposortowanaLista.add(hm);
         nieposortowanaLista.add(hm1);
-        nieposortowanaLista.add(hm2);
+       nieposortowanaLista.add(hm2);
         nieposortowanaLista.add(hm3);
         nieposortowanaLista.add(hm4);
         nieposortowanaLista.add(hm5);
         nieposortowanaLista.add(hm6);
         nieposortowanaLista.add(hm7);
+        nieposortowanaLista.add(hm8);
+
 
         for (Homework0 tmp : nieposortowanaLista){
             System.out.println(tmp.toString());
@@ -38,7 +42,7 @@ public class Homework1 {
         System.out.println("");
         System.out.println("po sortowaniu");
         System.out.println("");
-int orderFlag=-1;
+int orderFlag=1;
 
         Collections.sort(nieposortowanaLista, new Komparator(orderFlag));
         for (Homework0 tmp : nieposortowanaLista){

@@ -7,17 +7,17 @@ public class PrimitivesLesson {
 
     /**
      * This is a main method.
-     *
+     * <p>
      * It's acting like an entry point for program.
-     *
+     * <p>
      * This is main method convention:
      * public static void main(String[] argumentsName)
-     *
+     * <p>
      * args -> arguments passed to program in execution process.
-     *
+     * <p>
      * More about specific keywords later.
      */
-    public static void main(String[] args){
+    public static void main(String[] args) {
 
         //1 byte = 8 bits
 

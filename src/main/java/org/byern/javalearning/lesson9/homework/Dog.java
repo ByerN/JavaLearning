@@ -8,7 +8,7 @@ public class Dog implements Beast {
 
     @Override
     public boolean isAttack() {
-        if (Human.backpack_Elements.values().equals(Human.backpack_Elements.BONE)) return false;
+        if (Human.backpackElements.values().equals(Human.backpackElements.BONE)) return false;
         else
             return true;
 
