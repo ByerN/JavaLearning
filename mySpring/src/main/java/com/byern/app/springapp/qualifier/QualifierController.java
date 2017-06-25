@@ -21,7 +21,7 @@ public class QualifierController {
     private final List<MyService> allServices;
 
     @Autowired
-    public QualifierController(@Qualifier("C") MyService myService,
+    public QualifierController(@Qualifier("A") MyService myService,
                                List<MyService> allServices) {
         this.myService = myService;
         this.allServices = allServices;

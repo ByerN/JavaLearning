@@ -7,8 +7,7 @@ import org.springframework.stereotype.Service;
 /**
  * Created by ByerN on 25.06.2017.
  */
-@Service
-@Qualifier("A")
+@Service("A")
 public class AService implements MyService {
 
     @Override
