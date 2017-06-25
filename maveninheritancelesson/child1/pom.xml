@@ -6,8 +6,8 @@
         declaring parent
     -->
     <parent>
-        <artifactId>maven-inheritance-lesson</artifactId>
         <groupId>com.byern.javalearning</groupId>
+        <artifactId>maven-inheritance-lesson</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
