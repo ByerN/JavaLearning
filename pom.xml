@@ -9,6 +9,7 @@
         <module>mavenlesson</module>
         <module>maveninheritancelesson</module>
         <module>myplugin</module>
+        <module>mySpring</module>
     </modules>
 
     <properties>
