@@ -19,7 +19,7 @@ public class StaticLesson {
          *
          * Static usage should be limited as much as possible.
          * It's usually used for:
-         * -constants
+         * -constant
          * -stateless utility-like methods (Math class is a good example)
          *
          * Overdosing statics usually turns program into a bug factory.
