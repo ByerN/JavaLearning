@@ -47,7 +47,6 @@ public class Homework2 {
             return 1;
         } else {
             int factorialResult = n * calculateFactorialUsingRecursion(n-1);
-            n--;
             return factorialResult;
         }
     }
