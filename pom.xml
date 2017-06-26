@@ -26,9 +26,6 @@
     <artifactId>java-learning</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-<<<<<<< HEAD
-</project>
-=======
     <dependencies>
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -37,6 +34,9 @@
             <scope>provided</scope>
         </dependency>
     </dependencies>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
 
 </project>
->>>>>>> db475cfc56a30a8b4cd8d48f2d562468e176d7c3
+
