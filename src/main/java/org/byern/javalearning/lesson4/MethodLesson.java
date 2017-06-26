@@ -140,4 +140,10 @@ public class MethodLesson {
     public static int plus(int a, int b, int c) {
         return a + b + c;
     }
+
+
+    public static void test(String ... args){
+        // args jes tablica!
+        //wywołanie metody z dowolną ilością argumentów
+    }
 }

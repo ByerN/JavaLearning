@@ -5,6 +5,10 @@ package org.byern.javalearning.lesson7;
  */
 public class ClassLesson {
 
+    //paradygmaty: heretyzacja, polimorfizm, abstrakcja, dziedziczenie
+//    kompozycja - alternatywa dziedziczenia; wsadzenie obiektu do klasy
+//    hermetyzacja - zamykanie pewnych cech w środku
+
     private int privateIntValueInitialized = 2;
     private int privateIntValueNotInitialized; // default someValue -> 0
 

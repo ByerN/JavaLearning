@@ -32,6 +32,7 @@ public class Human {
          * Instead try to use more polymorphic constructions.
          */
         if(soundMaker instanceof Dog){
+//            sprawdzamy czy tyen byt (soundMaker) jest instancja danego typu (Dog)
             System.out.println("Hi doggy!!!");
         } else if (soundMaker instanceof Cat){
             System.out.println("Hi kitty!!!");

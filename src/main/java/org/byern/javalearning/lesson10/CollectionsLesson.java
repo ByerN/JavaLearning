@@ -211,7 +211,7 @@ public class CollectionsLesson {
             System.out.println(key);
         }
 
-        //loop through key-value pairs
+        //loop through key-value pairs; wyciąga pary klucz-wartoś
         for (Map.Entry<String, A> entry : map.entrySet()){
             System.out.println(entry.getKey() + ":" + entry.getValue().getName());
         }

@@ -9,6 +9,8 @@ package org.byern.javalearning.lesson8;
  */
 public abstract class AbstractClassExample {
 
+//    nie można tworzyc instancji klasy abstrakcyjnej !!!
+
     protected String someField = "value";
 
     public AbstractClassExample() {

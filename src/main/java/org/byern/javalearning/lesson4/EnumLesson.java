@@ -97,7 +97,7 @@ public class EnumLesson {
 
         String fridayName = DayComplex.FRIDAY.name();
         DayComplex fridayEnum = DayComplex.valueOf("FRIDAY");
-        DayComplex[] allDays = DayComplex.values();
+        DayComplex[] allDays = DayComplex.values(); // zwraca tablce stałych w obrębie enuma
 
         System.out.println("Enum example 2:");
         System.out.println("DayComplex.FRIDAY.name()= " + fridayName);//FRIDAY

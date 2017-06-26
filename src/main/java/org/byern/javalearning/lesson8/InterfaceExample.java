@@ -5,6 +5,9 @@ package org.byern.javalearning.lesson8;
  */
 /*
  * For interface declaration "class" keyword should be replaced with "interface" keyword
+ * służy do wyznaczania wspólnych cech, pokazać co mozemy zrobic do grupie rzeczy
+ *  w interfejsach nie mozemy implementowac zmiennych - dodawac cech - moga byc tylko stałe (public static final)
+ *  każda metoda jest domyslna publczna i abstrakcyjna
  */
 public interface InterfaceExample {
 

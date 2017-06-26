@@ -6,7 +6,7 @@ package org.byern.javalearning.lesson4.homework;
 public class Homework4 {
 
     public static void main(String[] args) {
-        /*
+        /*/ stworzyc losowo generowana plansze
          * Make a method returning array representing random generated game level
          * that can be used in a game from previous lessons and use:
          *

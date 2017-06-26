@@ -19,11 +19,24 @@
     </dependencies>
 
     <properties>
-        <maven.compiler.source>1.7</maven.compiler.source>
-        <maven.compiler.target>1.7</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
     <groupId>com.byern.javalearning</groupId>
     <artifactId>java-learning</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+<<<<<<< HEAD
 </project>
+=======
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.16.6</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+
+</project>
+>>>>>>> db475cfc56a30a8b4cd8d48f2d562468e176d7c3
