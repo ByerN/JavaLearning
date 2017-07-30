@@ -10,6 +10,7 @@
         <module>maveninheritancelesson</module>
         <module>myplugin</module>
         <module>mySpring</module>
+        <module>BSocialNetwork</module>
     </modules>
     <dependencies>
         <dependency>

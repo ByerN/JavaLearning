@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chat</title>
+    <script src="http://code.jquery.com/jquery-3.2.1.min.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+$(document).ready(function(){
+    $.ajaxSetup({
+      contentType: "application/json; charset=utf-8"
+    });
+refreshView();
+
+setInterval(refreshView, 1000);
+    $("#sendMessageButton").click( function()
+       {
+
+        $.ajax({
+            beforeSend: function(xhrObj){
+                xhrObj.setRequestHeader("Content-Type","application/json");
+                xhrObj.setRequestHeader("Accept","application/json");
+            },
+            type: "POST",
+            url: "/bsocialnetwork/messages",
+            data: JSON.stringify({ text : $("#textArea").val() }),
+            dataType: "json",
+            success: refreshView
+        });
+        $("#textArea").val('');
+    });
+
+$("#textArea").keypress(function (e) {
+        var code = (e.keyCode ? e.keyCode : e.which);
+        if (code == 13) {
+            $("#sendMessageButton").trigger('click');
+            return true;
+        }
+    });
+
+    function refreshView(json){
+                $.ajax({
+                    beforeSend: function(xhrObj){
+                        xhrObj.setRequestHeader("Content-Type","application/json");
+                        xhrObj.setRequestHeader("Accept","application/json");
+                    },
+                    type: "GET",
+                    url: "/bsocialnetwork/messages",
+                    dataType: "json",
+                    success: function(json){
+                        console.log(json);
+                        var arrayLength = json.length;
+                        var chatText = '';
+                        for (var i = 0; i < arrayLength; i++) {
+                            chatText += json[i].user.name + ": " + json[i].text + "\n";
+                        }
+                        console.log(chatText);
+                       $("#chatTextArea").val(chatText);
+                    }
+                });
+            }
+
+    $("#loginButton").click( function()
+       {
+        $.ajax({
+            beforeSend: function(xhrObj){
+                xhrObj.setRequestHeader("Content-Type","application/json");
+                xhrObj.setRequestHeader("Accept","application/json");
+            },
+            type: "POST",
+            url: "/bsocialnetwork/anonymous",
+            data: JSON.stringify({ name : $("#loginTextField").val() }),
+            dataType: "json",
+            success: function(json){
+               alert("Logged in!")
+            }
+        });
+    });
+});
+
+    </script>
+</head>
+<body>
+<input id="loginTextField" type="text" name="loginName">
+<button id="loginButton" type="button">Login</button>
+
+<textarea id = "chatTextArea" rows="10" cols="50">
+</textarea>
+
+<textarea id = "textArea" rows="4" cols="50">
+</textarea>
+<button id="sendMessageButton" type="button">Send Message</button>
+</body>
+</html>
