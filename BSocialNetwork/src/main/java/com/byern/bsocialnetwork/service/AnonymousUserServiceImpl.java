@@ -1,5 +1,6 @@
 package com.byern.bsocialnetwork.service;
 
+import com.byern.bsocialnetwork.config.ChatConfig;
 import com.byern.bsocialnetwork.dao.AnonymousUserDao;
 import com.byern.bsocialnetwork.domain.AnonymousUser;
 import com.byern.bsocialnetwork.dto.AnonymousRegisterDto;
@@ -24,12 +25,15 @@ public class AnonymousUserServiceImpl implements AnonymousUserService{
 
     private final AnonymousUserDao anonymousUserDao;
     private final LoggedUserService loggedUserService;
+    private final ChatConfig chatConfig;
 
     @Autowired
     public AnonymousUserServiceImpl(AnonymousUserDao anonymousUserDao,
-                                    LoggedUserService loggedUserService) {
+                                    LoggedUserService loggedUserService,
+                                    ChatConfig chatConfig) {
         this.anonymousUserDao = anonymousUserDao;
         this.loggedUserService = loggedUserService;
+        this.chatConfig = chatConfig;
     }
 
     @Override
@@ -50,8 +54,7 @@ public class AnonymousUserServiceImpl implements AnonymousUserService{
     @Override
     @Transactional
     public AnonymousUser getById(UUID anonymousUserId){
-        AnonymousUser byGlobalId = anonymousUserDao.findByGlobalId(AnonymousUser.class, anonymousUserId);
-        return byGlobalId;
+        return anonymousUserDao.findByGlobalId(AnonymousUser.class, anonymousUserId);
     }
 
     @Override
@@ -62,9 +65,9 @@ public class AnonymousUserServiceImpl implements AnonymousUserService{
 
     private AnonymousUser processExistingUser(AnonymousUser oldUser) throws UserAlreadyExistsException {
         AnonymousUser result;
-        if(oldUser.getLastActivityTime().isAfter(ZonedDateTime.now().minusSeconds(10))){
-            anonymousUserDao.remove(oldUser);
-            result = createNewUser(oldUser.getName());
+        if(oldUser.getLastActivityTime().isBefore(
+            ZonedDateTime.now().minusSeconds(chatConfig.getAnonymousUserTimeout()))){
+            result = oldUser;
         } else {
             throw new UserAlreadyExistsException();
         }

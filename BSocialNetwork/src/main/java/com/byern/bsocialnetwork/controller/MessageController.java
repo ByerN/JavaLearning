@@ -11,6 +11,7 @@ import com.byern.bsocialnetwork.service.LoggedUserService;
 import com.byern.bsocialnetwork.service.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -40,7 +41,8 @@ public class MessageController {
     }
 
     @RequestMapping(value = "/messages", method = RequestMethod.POST)
-    public MessageDto createMessage(@RequestBody MessageCreateDto messageCreateDto) throws SessionExpiredException {
+    public MessageDto createMessage(@Validated @RequestBody MessageCreateDto messageCreateDto)
+        throws SessionExpiredException {
         Message message = messageService.createMessage(messageCreateDto);
         AnonymousUser user = message.getUser();
         return new MessageDto(

@@ -2,6 +2,7 @@ package com.byern.bsocialnetwork.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import org.hibernate.validator.constraints.NotBlank;
 
 import javax.validation.constraints.NotNull;
 
@@ -13,7 +14,7 @@ import javax.validation.constraints.NotNull;
 @Getter
 public class AnonymousRegisterDto {
 
-    @NotNull
+    @NotBlank
     private String name;
 
 }

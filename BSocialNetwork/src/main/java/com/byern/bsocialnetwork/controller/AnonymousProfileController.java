@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.WebApplicationContext;
 
@@ -36,7 +37,7 @@ public class AnonymousProfileController {
 
     @RequestMapping(method = RequestMethod.POST)
     @ResponseBody
-    public AnonymousUserDto registerUser(@RequestBody AnonymousRegisterDto anonymousRegisterDto)
+    public AnonymousUserDto registerUser(@Validated @RequestBody AnonymousRegisterDto anonymousRegisterDto)
         throws UserAlreadyExistsException {
         AnonymousUser anonymousUser = anonymousUserService.register(anonymousRegisterDto);
         return new AnonymousUserDto(anonymousUser.getName(), anonymousUser.getGlobalId());
